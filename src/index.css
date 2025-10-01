@@ -1,0 +1,426 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  
+  h1, h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: normal;
+  }
+  
+  h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #181E2A; /* brand-darkBlue */
+  }
+  
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 36px;
+    }
+  }
+  
+  /* Set line-height to normal for all text elements */
+  p, span, div, a, button, input, textarea, select, option, label, li {
+    line-height: normal;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(128deg, rgba(238, 239, 225, 0.80) 1.74%, rgba(238, 239, 225, 0.30) 71.83%);
+    background-attachment: fixed;
+  }
+}
+
+/* Added rule for elements with both p-6 and relative z-10 classes */
+.p-6.relative.z-10 {
+  background: rgb(255 255 255 / 88%);
+}
+
+/* Updated primary gradient */
+.bg-primary-gradient {
+  background-image: linear-gradient(135deg, #005DFE, #53EDBE);
+}
+
+/* Page transitions */
+.page-transition-enter {
+  @apply opacity-0;
+}
+
+.page-transition-enter-active {
+  @apply opacity-100 transition-opacity duration-300;
+}
+
+.page-transition-exit {
+  @apply opacity-100;
+}
+
+.page-transition-exit-active {
+  @apply opacity-0 transition-opacity duration-300;
+}
+
+/* Section transitions */
+.section-transition {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-brand-blue text-white;
+  animation: sectionTransition 1.5s ease-in-out forwards;
+}
+
+@keyframes sectionTransition {
+  0% {
+    opacity: 0;
+    clip-path: circle(0% at center);
+  }
+  20% {
+    opacity: 1;
+    clip-path: circle(100% at center);
+  }
+  80% {
+    opacity: 1;
+    clip-path: circle(100% at center);
+  }
+  100% {
+    opacity: 0;
+    clip-path: circle(0% at center);
+  }
+}
+
+/* Enhanced float animation for smoother motion */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(-5px) translateX(10px);
+  }
+  75% {
+    transform: translateY(10px) translateX(5px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+/* Background animation keyframes */
+@keyframes bgAnimation1 {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(10%, 5%) scale(1.2);
+  }
+  66% {
+    transform: translate(-10%, -5%) scale(0.8);
+  }
+}
+
+@keyframes bgAnimation2 {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(-8%, -4%) scale(1.1);
+  }
+  66% {
+    transform: translate(8%, 4%) scale(0.9);
+  }
+}
+
+@keyframes bgAnimation3 {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(12%, -12%) scale(1.15);
+  }
+  66% {
+    transform: translate(-12%, 12%) scale(0.85);
+  }
+}
+
+@keyframes bgAnimation4 {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(-15%, 10%) scale(1.1);
+  }
+  66% {
+    transform: translate(15%, -10%) scale(0.9);
+  }
+}
+
+@keyframes bgAnimation5 {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(8%, 8%) scale(1.2);
+  }
+  66% {
+    transform: translate(-8%, -8%) scale(0.8);
+  }
+}
+
+.animate-float {
+  animation: float 15s ease-in-out infinite;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Statement section min-height for medium screens and above */
+@media (min-width: 768px) {
+  .problem-statement, 
+  .section-statement,
+  [id^="section-problem"],
+  #problem-section {
+    min-height: 600px;
+  }
+}
+
+/* Impact section styles */
+.heading-3 {
+  position: relative;
+  font-weight: 600;
+}
+
+.b {
+  position: relative;
+}
+
+.of-smbs-struggle {
+  position: relative;
+  font-size: 16px;
+  color: #0a214a;
+  text-align: left;
+}
+
+.impact-box {
+  align-self: stretch;
+  flex: 1;
+  border-radius: 12px;
+  background: linear-gradient(79.81deg, #eaf2ff, #fff);
+  border-left: 6px solid #84acf0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px 20px 16px 24px;
+  gap: 4px;
+}
+
+.higher-cost-for {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-family: Inter, sans-serif;
+  color: #0a214a;
+  text-align: left;
+}
+
+.impact-box1 {
+  align-self: stretch;
+  flex: 1;
+  border-radius: 12px;
+  background: linear-gradient(79.81deg, #eaf2ff, #fff);
+  border-left: 6px solid #84acf0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px 20px 16px 24px;
+  gap: 4px;
+  color: #005dfe;
+}
+
+.impact-box2 {
+  align-self: stretch;
+  flex: 1;
+  border-radius: 12px;
+  background: linear-gradient(79.81deg, #eaf2ff, #fff);
+  border-left: 6px solid #84acf0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px 20px 16px 24px;
+  gap: 4px;
+  color: #15cb94;
+}
+
+.impact-boxes {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  text-align: center;
+  font-size: 60px;
+  color: #00348f;
+}
+
+.the-impact-on-small-businesses {
+  width: 100%;
+  position: relative;
+  box-shadow: 0px 10px 50px rgba(0, 93, 254, 0.16);
+  border-radius: 16px;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 24px;
+  text-align: left;
+  font-size: 24px;
+  color: #0a214a;
+  font-family: 'DM Sans', sans-serif;
+}
+
+@media (min-width: 640px) {
+  .impact-box, .impact-box1, .impact-box2 {
+    padding: 20px 24px 20px 32px;
+  }
+  
+  .the-impact-on-small-businesses {
+    padding: 32px;
+    gap: 28px;
+  }
+  
+  .impact-boxes {
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .impact-box, .impact-box1, .impact-box2 {
+    padding: 24px 32px 24px 40px;
+  }
+  
+  .the-impact-on-small-businesses {
+    padding: 40px;
+    gap: 32px;
+  }
+  
+  .impact-boxes {
+    gap: 24px;
+  }
+}
+
+/* New background gradient styles */
+.bg-gradient-radial {
+  background-image: radial-gradient(circle at 50% 50%, var(--tw-gradient-stops));
+}
+
+/* Benefits Matter section styles */
+@media (max-width: 768px) {
+  .impact-boxes {
+    flex-direction: column;
+    font-size: 40px;
+  }
+}
+
+@layer utilities {
+  .heading-1 {
+    @apply font-grotesk font-bold text-5xl md:text-6xl lg:text-7xl leading-tight;
+  }
+}
