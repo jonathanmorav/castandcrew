@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import NavigationArrow from "./navigation/NavigationArrow";
 import VantaAnimation from "./cover/VantaAnimation";
+import cakewalkLogo from "@/assets/cakewalk-logo.png";
 interface CoverScreenProps {
   onNavigateNext: () => void;
 }
@@ -15,21 +16,29 @@ const CoverScreen = ({
       
       <div className="container px-4 md:px-6 flex flex-col items-center justify-center text-center relative z-10">
         <div className="max-w-[800px] mx-auto">
-          <motion.h1 id="cover-title" initial={{
-          opacity: 0,
-          y: -20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.7
-        }} style={{
-          fontSize: "clamp(36px, 7vw, 60px)",
-          lineHeight: 1.1,
-          textShadow: "0 2px 20px rgba(0,0,0,0.15)"
-        }} className="text-white font-bold text-h1">
-            Cakewalk Benefits
-          </motion.h1>
+          <motion.div 
+            initial={{
+              opacity: 0,
+              y: -20
+            }} 
+            animate={{
+              opacity: 1,
+              y: 0
+            }} 
+            transition={{
+              duration: 0.7
+            }}
+            className="flex justify-center items-center"
+          >
+            <img 
+              src={cakewalkLogo} 
+              alt="Cakewalk Benefits" 
+              className="w-full max-w-[600px] h-auto"
+              style={{
+                filter: "drop-shadow(0 2px 20px rgba(0,0,0,0.15))"
+              }}
+            />
+          </motion.div>
           
           <motion.p initial={{
           opacity: 0,
