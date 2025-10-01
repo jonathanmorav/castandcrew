@@ -71,7 +71,7 @@ const CoverScreen = ({
           fontSize: "clamp(14px, 2vw, 18px)",
           lineHeight: 1.6
         }}>
-            May 2025
+            October 2025
           </motion.p>
         </div>
       </div>
