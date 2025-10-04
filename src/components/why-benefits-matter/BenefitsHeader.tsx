@@ -35,7 +35,7 @@ const BenefitsHeader = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.5 }}
       >
-        In today's business environment, employee benefits aren't just a nice-to-have—they're
+        In today's business environment, employee benefits aren't just a nice-to-have, they're
         <span className="relative inline-block">
           <span className="absolute -bottom-0.5 left-0 w-full h-1 bg-brand-teal/30 rounded-full"></span>
           <span className="px-1 font-medium"> essential </span>

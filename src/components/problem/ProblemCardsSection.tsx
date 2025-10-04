@@ -17,34 +17,9 @@ const ProblemCardsSection = ({ scrollYProgress }: ProblemCardsSectionProps) => {
   
   return (
     <>
-      {/* Section heading - With responsive visibility for mobile */}
-      <motion.h2 
-        className="font-grotesk font-bold text-center mb-12 sm:mb-16 md:mb-28 text-[#005DFE] text-3xl md:text-4xl lg:text-5xl px-4"
-        style={{ 
-          lineHeight: '1.1',
-          opacity: isMobile ? 1 : useTransform(
-            scrollYProgress, 
-            [0.4, 0.5, 0.9], 
-            [0, 1, 1]
-          ),
-          y: isMobile ? 0 : useTransform(
-            scrollYProgress, 
-            [0.4, 0.5, 0.9], 
-            [50, 0, 0]
-          ),
-          scale: isMobile ? 1 : useTransform(
-            scrollYProgress, 
-            [0.4, 0.5, 0.55, 0.9], 
-            [0.9, 1, 1.05, 1]
-          )
-        }}
-      >
-        The Problem
-      </motion.h2>
-      
-      <div 
+      <div
         ref={problemCardsRef}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16 relative px-4 sm:px-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16 relative px-4 sm:px-6 mb-12 md:mb-16"
       >
         {problemCards.map((card, index) => (
           <motion.div

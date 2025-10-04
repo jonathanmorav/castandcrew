@@ -53,7 +53,7 @@ const CoverScreen = ({
           fontSize: "clamp(28px, 5vw, 48px)",
           lineHeight: 1.2,
           textShadow: "0 2px 10px rgba(0,0,0,0.15)"
-        }} className="font-medium mt-4 md:mt-6 text-white text-5xl">Revolutionizing Employee Benefits for Small Businesses</motion.p>
+        }} className="font-medium mt-4 md:mt-6 text-white text-5xl">Democratizing Access to Employee Benefits for Small Businesses</motion.p>
           
           <motion.p className="font-medium mt-6 md:mt-10 text-white/90" initial={{
           opacity: 0
@@ -66,7 +66,7 @@ const CoverScreen = ({
           fontSize: "clamp(18px, 3vw, 26px)",
           lineHeight: 1.3
         }}>
-            Seed Round Funding Deck
+            Seed Round Deck
           </motion.p>
           
           <motion.p className="mt-2 md:mt-4 text-white/80" initial={{

@@ -35,16 +35,15 @@ const BenefitsBarrier = ({ onNavigateNext }: BenefitsBarrierProps) => {
       <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <BarrierHeader isVisible={isVisible} />
-        
-        {/* E-Commerce Comparison Card */}
-        <ECommerceComparison isVisible={isVisible} />
-        
+
         {/* Tabs for Different Problem Aspects */}
-        <BarrierTabs 
-          isVisible={isVisible} 
-          currentTab={currentTab} 
-          setCurrentTab={setCurrentTab} 
-        />
+        <div className="mt-8 md:mt-12">
+          <BarrierTabs
+            isVisible={isVisible}
+            currentTab={currentTab}
+            setCurrentTab={setCurrentTab}
+          />
+        </div>
         
         {/* Why This Matters section */}
         <OpportunityHighlight isVisible={isVisible} />

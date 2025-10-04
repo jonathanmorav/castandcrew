@@ -1,22 +1,8 @@
 
 import React, { useEffect, useRef } from "react";
-import { sections } from "@/components/sections/SectionMapping";
+import { sections, sectionComponents } from "@/components/sections/SectionMapping";
 import { cn } from "@/lib/utils";
 import PageNavigation from "@/components/PageNavigation";
-
-// Importing all the components that will be displayed in single view mode
-import CoverScreen from "@/components/CoverScreen";
-import ProblemStatement from "@/components/ProblemStatement";
-import WhyBenefitsMatter from "@/components/WhyBenefitsMatter";
-import BenefitsBarrier from "@/components/benefits-barrier/BenefitsBarrier";
-import SolutionOverview from "@/components/SolutionOverview";
-import CakewalkModel from "@/components/CakewalkModel";
-import CompetitiveEdge from "@/components/CompetitiveEdge";
-import CakewalkExperience from "@/components/CakewalkExperience";
-import { MultiChannelDistribution } from "@/components/distribution";
-import UnitEconomics from "@/components/UnitEconomics";
-import UseOfFunds from "@/components/UseOfFunds";
-import Team from "@/components/Team";
 
 const SingleView = ({ currentSectionId, onNavigate }) => {
   // Function to handle dummy navigation since we're showing all content in scrollable form
@@ -36,26 +22,15 @@ const SingleView = ({ currentSectionId, onNavigate }) => {
     scrollToSection(currentSectionId);
   }, [currentSectionId]);
 
-  // Reference to section components
-  const sectionComponents: { [key: string]: React.ComponentType<any> } = {
-    "cover": CoverScreen,
-    "problem": ProblemStatement,
-    "why": WhyBenefitsMatter,
-    "barriers": BenefitsBarrier,
-    "solution": SolutionOverview,
-    "cakewalk-model": CakewalkModel,
-    "competitive-edge": CompetitiveEdge,
-    "cakewalk-experience": CakewalkExperience,
-    "distribution": MultiChannelDistribution,
-    "unit-economics": UnitEconomics,
-    "use-of-funds": UseOfFunds,
-    "team": Team,
-  };
-
   return (
     <div className="single-view-container">
       {sections.map((section) => {
-        const SectionComponent = sectionComponents[section.id];
+        const SectionComponent =
+          sectionComponents[section.id as keyof typeof sectionComponents];
+
+        if (!SectionComponent) {
+          return null;
+        }
         
         return (
           <div 

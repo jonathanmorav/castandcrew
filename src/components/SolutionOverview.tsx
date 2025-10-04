@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Lightbulb, Zap, Users, LineChart } from "lucide-react";
+import { Lightbulb, Zap, Users, LineChart, ChevronDown } from "lucide-react";
 import NavigationArrow from "./navigation/NavigationArrow";
 import WorkflowVisualizer from "./WorkflowVisualizer";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -90,7 +91,7 @@ const SolutionOverview = ({
   onNavigateNext
 }: SolutionOverviewProps) => {
   const isMobile = useIsMobile();
-  return <section className="relative w-full min-h-screen bg-[#00348f] flex flex-col items-center justify-center overflow-hidden">
+  return <section className="relative w-full min-h-[1200px] bg-[#00348f] flex flex-col items-center justify-center overflow-hidden">
       {/* Animated Background Blurs */}
       <motion.div style={{
       top: "-390.3px",
@@ -110,32 +111,44 @@ const SolutionOverview = ({
     }} initial={blurAnimations[3].initial} animate={blurAnimations[3].animate} />
 
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-[1280px] flex flex-col md:flex-row items-center justify-between px-4 md:px-10 py-12 md:py-0">
+      <div className="relative z-10 w-full flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-8 md:py-0 gap-2 md:gap-3">
         {/* Text Column - Styled according to the provided guidelines */}
-        <div className="w-full md:w-1/2 max-w-full md:max-w-[544px] mb-10 md:mb-0">
-          <div className="flex flex-col items-start gap-3 md:gap-4">
+        <div className="w-full md:w-5/12 max-w-full mb-6 md:mb-0">
+          <div className="flex flex-col items-start gap-2 md:gap-3">
             <h2 className="text-4xl md:text-5xl font-bold text-white font-grotesk w-full">
-              Our Solution
+              The <span className="text-[#53EDBE]">Cakewalk</span> Solution
             </h2>
             
-            <p className="text-[#cbdeff] text-lg md:text-xl leading-[32.5px] font-['Inter'] mb-4 md:mb-8">
-              Cakewalk Benefits offers a zero-touch insurance platform that streamlines underwriting, user experience, and operations for small businesses.
-            </p>
-            
             <div className="w-full">
-              <div className="flex flex-col gap-5 md:gap-8">
+              <div className="flex flex-col gap-3 md:gap-5">
                 <div>
-                  <h3 className="text-xl md:text-2xl font-semibold text-white font-['DM_Sans'] mb-5">
-                    Key Features
+                  <h3 className="text-xl md:text-2xl font-semibold text-white font-['DM_Sans'] mb-3">
+                    Insurance That Runs Itself for Small Teams
                   </h3>
                 </div>
                 
-                <div className="flex flex-col gap-4 md:gap-3">
+                <div className="flex flex-col gap-3 md:gap-2">
                   {/* Solution Points using the component-8 styling */}
-                  <SolutionFeature icon={<Lightbulb className="h-6 w-6 text-brand-blue" />} title="Simplified Digital Experience" />
-                  <SolutionFeature icon={<Zap className="h-6 w-6 text-brand-blue" />} title="Automated Underwriting" />
-                  <SolutionFeature icon={<Users className="h-6 w-6 text-brand-blue" />} title="Collective Purchasing Power" />
-                  <SolutionFeature icon={<LineChart className="h-6 w-6 text-brand-blue" />} title="Transparent Pricing" />
+                  <SolutionFeature 
+                    icon={<Lightbulb className="h-6 w-6" />} 
+                    title="Simple, Digital Employer Onboarding"
+                    subcopy="Designed for small businesses without HR teams, Cakewalk makes it easy to setup your business and offer benefits to your team with a few clicks of a button. No binders, no consultants, just turnkey coverage that protects the health and financial being of their teams and their families."
+                  />
+                  <SolutionFeature 
+                    icon={<Zap className="h-6 w-6" />} 
+                    title="Real-Time Underwriting & Smart Guidance"
+                    subcopy="Streams employer and employee data through multi-carrier pricing in seconds, then recommends the right mix of medical, ancillary, and financial protection so every team walks away with coverage tailored to its needs."
+                  />
+                  <SolutionFeature 
+                    icon={<Users className="h-6 w-6" />} 
+                    title="Seamless Checkout & Contributions"
+                    subcopy="Seamless payment setup, contribution splits, and agreement e-signature in one flow, syncing deductions to payroll or direct draw so coverage starts right away."
+                  />
+                  <SolutionFeature 
+                    icon={<LineChart className="h-6 w-6" />} 
+                    title="Always-On Benefits Wallet"
+                    subcopy="Gives every worker a mobile-first wallet to manage plans, ID cards, reimbursements, and qualifying life events—keeping enrollment data fresh for carriers and admins."
+                  />
                 </div>
               </div>
             </div>
@@ -143,7 +156,7 @@ const SolutionOverview = ({
         </div>
 
         {/* Visual Column */}
-        <div className="w-full md:w-1/2 flex items-center justify-center">
+        <div className="w-full md:w-7/12 flex items-center justify-center">
           <WorkflowVisualizer steps={steps} />
         </div>
       </div>
@@ -154,16 +167,58 @@ const SolutionOverview = ({
 interface SolutionFeatureProps {
   icon: React.ReactNode;
   title: string;
+  subcopy?: string;
 }
 const SolutionFeature = ({
   icon,
-  title
-}: SolutionFeatureProps) => <div className="flex flex-row items-center gap-4">
-    <div className="w-12 h-12 rounded-lg bg-[rgba(227,250,243,0.78)] backdrop-blur-[34px] border border-[rgba(255,255,255,0.6)] flex items-center justify-center">
-      {icon}
+  title,
+  subcopy
+}: SolutionFeatureProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  
+  return (
+    <div className="w-full">
+      <div
+        className="group flex flex-row items-center justify-between gap-4 rounded-xl border border-transparent px-4 py-3 transition-all cursor-pointer hover:border-[rgba(255,255,255,0.35)] hover:bg-[rgba(227,250,243,0.12)]"
+        onClick={() => subcopy && setIsExpanded(!isExpanded)}
+        aria-expanded={subcopy ? isExpanded : undefined}
+      >
+        <div className="flex flex-1 items-center gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[rgba(255,255,255,0.6)] bg-[rgba(0,52,143,0.1)] backdrop-blur-[34px]">
+            <div className="text-[#53EDBE]">
+              {icon}
+            </div>
+          </div>
+          <h4 className="text-[18px] font-semibold text-[#cbdeff] font-['Inter']">
+            {title}
+          </h4>
+        </div>
+        {subcopy && (
+          <ChevronDown
+            className={`h-5 w-5 text-[#cbdeff] transition-transform duration-200 group-hover:translate-y-[2px] ${isExpanded ? "rotate-180" : ""}`}
+            aria-hidden="true"
+          />
+        )}
+      </div>
+      
+      {subcopy && (
+        <motion.div
+          initial={false}
+          animate={{ 
+            height: isExpanded ? "auto" : 0,
+            opacity: isExpanded ? 1 : 0
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="overflow-hidden"
+        >
+          <div className="ml-16 mt-3 pr-4">
+            <p className="text-[#cbdeff] text-sm leading-relaxed font-['Inter']">
+              {subcopy}
+            </p>
+          </div>
+        </motion.div>
+      )}
     </div>
-    <h4 className="text-[18px] font-semibold text-[#cbdeff] font-['Inter']">
-      {title}
-    </h4>
-  </div>;
+  );
+};
 export default SolutionOverview;

@@ -1,43 +1,11 @@
 
 import React from "react";
-import { sections } from "@/pages/Index";
+import { sections, sectionComponents } from "@/components/sections/SectionMapping";
 import { cn } from "@/lib/utils";
-
-// Importing all the components that will be displayed in content-only mode
-import CoverScreen from "@/components/CoverScreen";
-import ProblemStatement from "@/components/ProblemStatement";
-import WhyBenefitsMatter from "@/components/WhyBenefitsMatter";
-import MarketOpportunity from "@/components/MarketOpportunity";
-import BenefitsBarrier from "@/components/benefits-barrier/BenefitsBarrier";
-import SolutionOverview from "@/components/SolutionOverview";
-import CakewalkModel from "@/components/CakewalkModel";
-import CompetitiveEdge from "@/components/CompetitiveEdge";
-import CakewalkExperience from "@/components/CakewalkExperience";
-import { MultiChannelDistribution } from "@/components/distribution";
-import UnitEconomics from "@/components/UnitEconomics";
-import UseOfFunds from "@/components/UseOfFunds";
-import Team from "@/components/Team";
 
 const ContentOnlyView = () => {
   // Function to handle dummy navigation since we're showing all content
   const dummyNavigate = () => {};
-
-  // Reference to section components
-  const sectionComponents: { [key: string]: React.ComponentType<any> } = {
-    "cover": CoverScreen,
-    "problem": ProblemStatement,
-    "why": WhyBenefitsMatter,
-    "market": MarketOpportunity,
-    "barriers": BenefitsBarrier,
-    "solution": SolutionOverview,
-    "cakewalk-model": CakewalkModel,
-    "competitive-edge": CompetitiveEdge,
-    "cakewalk-experience": CakewalkExperience,
-    "distribution": MultiChannelDistribution,
-    "unit-economics": UnitEconomics,
-    "use-of-funds": UseOfFunds,
-    "team": Team,
-  };
 
   return (
     <div className="content-only-view bg-white min-h-screen">
@@ -62,7 +30,12 @@ const ContentOnlyView = () => {
       {/* Content sections */}
       <div className="container mx-auto py-6 px-4">
         {sections.map((section) => {
-          const SectionComponent = sectionComponents[section.id];
+          const SectionComponent =
+            sectionComponents[section.id as keyof typeof sectionComponents];
+
+          if (!SectionComponent) {
+            return null;
+          }
           
           return (
             <div 

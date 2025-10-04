@@ -50,26 +50,35 @@ const ProblemStatement = ({ onNavigateNext }: ProblemStatementProps) => {
       <BackgroundEffects scrollYProgress={scrollYProgress} />
       
       <div className="container px-4 md:px-6 max-w-7xl relative z-10">
+        {/* The Problem Heading */}
+        <motion.h2
+          className="font-grotesk font-bold text-center mb-8 sm:mb-10 md:mb-12 text-[#005DFE] text-3xl md:text-4xl lg:text-5xl px-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: false }}
+          style={{ lineHeight: '1.1' }}
+        >
+          The Problem
+        </motion.h2>
+
         {/* Problem Statement Headlines */}
-        <HeadlineSection 
-          scrollYProgress={scrollYProgress} 
+        <HeadlineSection
+          scrollYProgress={scrollYProgress}
           onHeadlineInView={handleHeadlineInView}
         />
-        
+
         {/* Problem Cards Section */}
         <ProblemCardsSection scrollYProgress={scrollYProgress} />
       </div>
-      
-      {/* Stats Section */}
-      <StatsSection isVisible={sectionInView} />
-      
+
       {/* Navigation Arrow */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.5 }}
         viewport={{ once: false, amount: 0.8 }}
-        className="mt-12 md:mt-16 lg:mt-24"
+        className="mt-8 md:mt-12"
       >
         <NavigationArrow 
           onClick={onNavigateNext} 

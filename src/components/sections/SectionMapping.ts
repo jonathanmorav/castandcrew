@@ -4,6 +4,7 @@ import ProblemStatement from "@/components/ProblemStatement";
 import WhyBenefitsMatter from "@/components/WhyBenefitsMatter";
 import BenefitsBarrier from "@/components/benefits-barrier/BenefitsBarrier";
 import SolutionOverview from "@/components/SolutionOverview";
+import WhyNow from "@/components/WhyNow";
 import CakewalkModel from "@/components/CakewalkModel";
 import CompetitiveEdge from "@/components/CompetitiveEdge";
 import CakewalkExperience from "@/components/CakewalkExperience";
@@ -23,7 +24,8 @@ export const sections: DeckSection[] = [
   { id: "problem", title: "Problem Statement" },
   { id: "why", title: "Why Benefits Matter" },
   { id: "barriers", title: "The Problem - Expanded" },
-  { id: "solution", title: "Why Now" },
+  { id: "why-now", title: "Why Now" },
+  { id: "solution", title: "Solution Overview" },
   { id: "cakewalk-model", title: "The Cakewalk Model" },
   { id: "competitive-edge", title: "Differentiation for SMBs" },
   { id: "cakewalk-experience", title: "The Cakewalk Experience" },
@@ -39,6 +41,7 @@ export const sectionComponents = {
   "problem": ProblemStatement,
   "why": WhyBenefitsMatter,
   "barriers": BenefitsBarrier,
+  "why-now": WhyNow,
   "solution": SolutionOverview,
   "cakewalk-model": CakewalkModel,
   "competitive-edge": CompetitiveEdge,
