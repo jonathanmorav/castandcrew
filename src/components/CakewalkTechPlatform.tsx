@@ -8,13 +8,21 @@ interface CakewalkTechPlatformProps {
   onNavigateNext: () => void;
 }
 
+interface PlatformCapability {
+  id: string;
+  title: string;
+  description: string;
+  bullets?: string[];
+  footer?: string;
+}
+
 interface LayerDefinition {
   id: string;
   title: string;
   icon: React.ComponentType<{ className?: string }>;
   badgeClass: string;
   tileClass: string;
-  items: Array<{ id: string; title: string; description: string }>;
+  items: PlatformCapability[];
 }
 
 const layers: LayerDefinition[] = [
@@ -38,7 +46,17 @@ const layers: LayerDefinition[] = [
       {
         id: "policy-admin-billing",
         title: "Policy Admin & Billing",
-        description: "Automated contributions, invoicing, collections, and reconciliation across carriers and payroll.",
+        description:
+          "Our cloud-native policy administration system automates every phase of the policy lifecycle.",
+        bullets: [
+          "Dynamic policy contract generation.",
+          "Billing, payment processing, retries, and reinstatements.",
+          "Endorsements for coverage or beneficiary updates.",
+          "Full servicing workflows with member self-service options.",
+          "Structured data feeds supporting carrier claims, audit, and compliance reporting.",
+        ],
+        footer:
+          "Owning the stack lets us ship new features, pricing changes, and carrier configurations in days—not quarters.",
       },
     ],
   },
@@ -122,7 +140,6 @@ const CakewalkTechPlatform = ({ onNavigateNext }: CakewalkTechPlatformProps) => 
           </p>
         </header>
 
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-blue/70">Hover or tap a capability to see the detail</p>
 
         <div className="grid gap-6 md:grid-cols-3">
           {layers.map((layer) => (
@@ -168,6 +185,21 @@ const CakewalkTechPlatform = ({ onNavigateNext }: CakewalkTechPlatformProps) => 
             </p>
             <h2 className="mt-2 text-2xl font-semibold text-brand-darkBlue">{activeTile.title}</h2>
             <p className="mt-3 text-sm text-brand-gray md:text-base">{activeTile.description}</p>
+            {activeTile.bullets && (
+              <ul className="mt-4 space-y-2 text-sm text-brand-gray md:text-base">
+                {activeTile.bullets.map((point) => (
+                  <li key={point} className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-mint" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {activeTile.footer && (
+              <p className="mt-4 text-sm font-medium text-brand-darkBlue/80 md:text-base">
+                {activeTile.footer}
+              </p>
+            )}
           </motion.div>
         )}
       </div>
@@ -181,7 +213,7 @@ const CakewalkTechPlatform = ({ onNavigateNext }: CakewalkTechPlatformProps) => 
 };
 
 interface TechTileProps {
-  item: { id: string; title: string; description: string };
+  item: PlatformCapability;
   layerClass: string;
   isActive: boolean;
   onActivate: (id: string) => void;
