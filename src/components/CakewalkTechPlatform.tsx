@@ -41,7 +41,15 @@ const layers: LayerDefinition[] = [
       {
         id: "partner-agent-os",
         title: "Partner & Agent OS",
-        description: "Quoting, contracting, performance analytics, and co-branded storefronts for every channel.",
+        description: "Cakewalk provides agents with a comprehensive operating system to sell and manage life insurance policies.",
+        bullets: [
+          "Rapid agent onboarding and eligibility checks.",
+          "Quoting tools and near real-time application tracking.",
+          "CRM integrations and marketing automation.",
+          "Agent payment dashboards with next-day payments.",
+          "Performance analytics and insights for every agent.",
+        ],
+        footer: "This system improves agent productivity, reduces manual effort, and lets agents focus on client engagement to drive velocity.",
       },
       {
         id: "policy-admin-billing",
@@ -70,7 +78,13 @@ const layers: LayerDefinition[] = [
       {
         id: "real-time-underwriting",
         title: "Real-Time Underwriting",
-        description: "Data-enriched pricing and recommendations assemble the right bundle for each cohort instantly.",
+        description: "Our proprietary rules-based engine taps a consumer information graph generated from our application workflow to assess risk precisely and transparently.",
+        bullets: [
+          "Instant decisions for most applicants.",
+          "Adaptive rule selection that tunes to the applicant profile.",
+          "High approval rates with reduced friction and faster decision-making.",
+        ],
+        footer: "The graph continues to evolve as new applications flow through Cakewalk, refining rule relevance, risk segmentation, and pricing precision.",
       },
       {
         id: "data-intelligence",
