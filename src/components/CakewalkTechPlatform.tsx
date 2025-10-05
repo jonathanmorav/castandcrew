@@ -34,9 +34,21 @@ const layers: LayerDefinition[] = [
     tileClass: "bg-brand-lightMint/70 border border-brand-lightMint/60 text-brand-darkBlue",
     items: [
       {
-        id: "member-wallet",
-        title: "Member Wallet",
-        description: "Digital ID cards, reimbursements, QLE workflows, and claims guidance available 24/7.",
+        id: "application-engine",
+        title: "Front‑End Consumer Experience",
+        description:
+          "Simple, human prompts with smart prefill guide an e‑commerce–style flow that teaches as it recommends.",
+        bullets: [
+          "Built for SMB owners and employees; also works in reseller, affinity, and embedded partner flows.",
+          "Prefills payroll/HRIS and prior session data; progressive disclosure keeps questions short and context‑aware.",
+          "Adaptive Q&A adjusts follow‑ups; auto‑validation catches inconsistencies before submission.",
+          "Guided shopping with explainers, comparisons, and ‘why this was recommended’ tooltips; calculators tune recommendations.",
+          "Retail‑like bundles with real‑time pricing and tax/contribution guidance; flags HSA/FSA and employer‑contribution savings.",
+          "Instant handoff to eligibility/underwriting; instant decisions for most applicants, clean routes for edge cases.",
+          "One‑motion checkout: contribution splits, payment setup, issuance, and confirmations.",
+          "Continuous insight loop builds a structured graph that improves segmentation, pricing, audit, and analytics.",
+          "Mobile‑first, WCAG‑minded, SOC2‑aligned with explicit consent and transparent disclosures.",
+        ],
       },
       {
         id: "partner-agent-os",
