@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import NavigationArrow from "./navigation/NavigationArrow";
+import BottomCornerLogo from "./BottomCornerLogo";
 import BenefitsHeader from "./why-benefits-matter/BenefitsHeader";
 import BenefitCardsGrid from "./why-benefits-matter/BenefitCardsGrid";
 import BenefitSummary from "./why-benefits-matter/BenefitSummary";
@@ -77,6 +78,8 @@ const WhyBenefitsMatter = ({ onNavigateNext }: WhyBenefitsMatterProps) => {
         <BenefitSummary scrolledSection={scrolledSection} />
       </div>
       
+      <BottomCornerLogo />
+
       {/* Navigation Arrow with enhanced positioning */}
       <motion.div 
         className="mt-12 relative z-10 flex justify-center"

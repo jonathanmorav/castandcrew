@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import NavigationArrow from "./navigation/NavigationArrow";
+import BottomCornerLogo from "./BottomCornerLogo";
 import { useInView } from "@/hooks/use-in-view";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -71,6 +72,8 @@ const ProblemStatement = ({ onNavigateNext }: ProblemStatementProps) => {
         {/* Problem Cards Section */}
         <ProblemCardsSection scrollYProgress={scrollYProgress} />
       </div>
+
+      <BottomCornerLogo />
 
       {/* Navigation Arrow */}
       <motion.div

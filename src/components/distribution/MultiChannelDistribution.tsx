@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import { useInView } from "framer-motion";
 import NavigationArrow from "../navigation/NavigationArrow";
+import BottomCornerLogo from "../BottomCornerLogo";
 import DistributionHeader from "./DistributionHeader";
 import DistributionIntro from "./DistributionIntro";
 import ChannelTabs from "./ChannelTabs";
@@ -50,6 +51,8 @@ const MultiChannelDistribution = ({ onNavigateNext }: MultiChannelDistributionPr
         {/* Next section link */}
         <NextSection isInView={isInView} />
       </div>
+
+      <BottomCornerLogo />
 
       <NavigationArrow onClick={onNavigateNext} />
     </div>

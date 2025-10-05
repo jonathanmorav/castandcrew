@@ -19,7 +19,7 @@ const HeadlineSection = ({ scrollYProgress, onHeadlineInView }: HeadlineSectionP
   
   // Problem statement headlines
   const problemStatements = [
-    "80 million Americans work for small businesses that lack access to critical insurance protection."
+    "61.7 million Americans work for small businesses that lack access to critical insurance protection."
   ];
 
   // Update parent component when headlines come into view

@@ -7,6 +7,7 @@ import CustomerAcquisition from "./unit-economics/CustomerAcquisition";
 import LifetimeValue from "./unit-economics/LifetimeValue";
 import ScalableEconomics from "./unit-economics/ScalableEconomics";
 import SectionFooter from "./use-of-funds/SectionFooter";
+import BottomCornerLogo from "./BottomCornerLogo";
 
 interface UnitEconomicsProps {
   onNavigateNext: () => void;
@@ -14,7 +15,7 @@ interface UnitEconomicsProps {
 
 const UnitEconomics = ({ onNavigateNext }: UnitEconomicsProps) => {
   return (
-    <section className="min-h-screen py-16 px-4 bg-gradient-to-b from-white to-gray-50">
+    <section className="relative min-h-screen py-16 px-4 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto">
         {/* Header */}
         <UnitEconomicsHeader />
@@ -43,6 +44,7 @@ const UnitEconomics = ({ onNavigateNext }: UnitEconomicsProps) => {
         {/* Footer with navigation */}
         <SectionFooter onNavigateNext={onNavigateNext} />
       </div>
+      <BottomCornerLogo />
     </section>
   );
 };

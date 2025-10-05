@@ -4,6 +4,7 @@ import { Lightbulb, Zap, Users, LineChart, ChevronDown } from "lucide-react";
 import NavigationArrow from "./navigation/NavigationArrow";
 import WorkflowVisualizer from "./WorkflowVisualizer";
 import { useIsMobile } from "@/hooks/use-mobile";
+import BottomCornerLogo from "./BottomCornerLogo";
 interface SolutionOverviewProps {
   onNavigateNext: () => void;
 }
@@ -160,6 +161,8 @@ const SolutionOverview = ({
           <WorkflowVisualizer steps={steps} />
         </div>
       </div>
+
+      <BottomCornerLogo />
 
       <NavigationArrow onClick={onNavigateNext} className="text-white hover:text-brand-mint z-10" />
     </section>;

@@ -2,125 +2,150 @@ import { motion } from "framer-motion";
 interface OpportunityHighlightProps {
   isVisible: boolean;
 }
-const OpportunityHighlight = ({
-  isVisible
-}: OpportunityHighlightProps) => {
+const OpportunityHighlight = ({ isVisible }: OpportunityHighlightProps) => {
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
   const listItemVariants = {
     hidden: {
       opacity: 0,
-      y: 20
+      y: 20,
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 50
-      }
-    }
+        stiffness: 50,
+      },
+    },
   };
-  return <>
-      {/* Why This Matters section */}
-      <motion.div className="max-w-5xl mx-auto mt-16 bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100" initial={{
-      opacity: 0,
-      y: 30
-    }} animate={isVisible ? {
-      opacity: 1,
-      y: 0
-    } : {
-      opacity: 0,
-      y: 30
-    }} transition={{
-      duration: 0.7,
-      delay: 0.7
-    }}>
-        <div className="grid grid-cols-1 md:grid-cols-3">
-          <div className="col-span-1 bg-gradient-to-br from-brand-blue to-brand-purple p-8 text-white flex flex-col justify-center">
-            <h3 className="text-2xl font-bold mb-4">Why This Matters</h3>
-            <p className="text-white/90 text-lg">
-              45% of the U.S. workforce works for small businesses, representing a massive opportunity.
+
+  const stats = [
+    {
+      value: "33.2M",
+      label: "Small businesses nationwide",
+    },
+    {
+      value: "61.7M",
+      label: "Employees depending on SMB-sponsored benefits",
+    },
+    {
+      value: "45%",
+      label: "Share of the U.S. workforce employed by SMBs",
+    },
+    {
+      value: "95%",
+      label: "Persistency rate—average policy stays in force four years",
+    },
+    {
+      value: "$25",
+      label: "Monthly revenue per covered life via Cakewalk",
+    },
+  ];
+
+  const narrativePoints = [
+    "Fragmented distribution leaves owners navigating benefits without expertise or time.",
+    "Premiums run 30–50% higher than enterprise rates, so coverage is the first cost item cut.",
+    "Carriers need a turnkey channel that can profitably serve the long tail of employers.",
+  ];
+
+  return (
+    <motion.section
+      className="mt-16"
+      initial={{ opacity: 0, y: 30 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.7, delay: 0.7 }}
+    >
+      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.1fr,0.9fr]">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-blue via-brand-purple to-brand-teal p-8 text-white md:p-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.25),transparent_55%)]" />
+          <div className="relative z-[1] flex h-full flex-col gap-6">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+              Why this matters
+            </span>
+            <h3 className="text-3xl font-bold leading-tight md:text-4xl">
+              61.7M workers need modern protection their employers can actually deploy.
+            </h3>
+            <p className="max-w-xl text-base text-white/85 md:text-lg">
+              Small businesses power nearly half of the U.S. workforce, yet lack the tools, incentives, and
+              infrastructure to provide competitive benefits. The result is a nationwide coverage gap primed for a
+              digital-first entrant.
+            </p>
+            <div className="flex flex-1 flex-col justify-between gap-6 md:gap-8">
+              <motion.ul
+                className="space-y-4 text-sm text-white/90 md:text-base"
+                variants={containerVariants}
+                initial="hidden"
+                animate={isVisible ? "visible" : "hidden"}
+              >
+                {narrativePoints.map((point) => (
+                  <motion.li key={point} variants={listItemVariants} className="flex items-start gap-3">
+                    <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-white/70" />
+                    <span>{point}</span>
+                  </motion.li>
+                ))}
+              </motion.ul>
+              <div className="rounded-2xl border border-white/30 bg-white/10 p-6 backdrop-blur">
+                <h4 className="text-lg font-semibold">Strategic takeaway</h4>
+                <p className="mt-2 text-sm text-white/85 md:text-base">
+                  Capturing even a sliver of this market unlocks a multi-billion-dollar premium pool while deepening
+                  carrier distribution and customer retention.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <motion.div
+          className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#53EDBE] via-[#7966F8] to-[#005DFE] p-8 text-white shadow-xl backdrop-blur md:p-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.25),transparent_55%)]" />
+          <div className="relative z-[1] flex h-full flex-col gap-6">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+              The Cakewalk Opportunity
+            </span>
+            <h3 className="text-3xl font-bold leading-tight md:text-4xl">
+              Digitally activate the long tail of employers and unlock recurring revenue.
+            </h3>
+            <motion.div
+              className="grid grid-cols-2 gap-6 text-white"
+              variants={containerVariants}
+              initial="hidden"
+              animate={isVisible ? "visible" : "hidden"}
+            >
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.value + index}
+                  variants={listItemVariants}
+                  className={`rounded-2xl border border-white/25 bg-white/10 p-5 text-center backdrop-blur ${index === stats.length - 1 ? "col-span-2" : ""}`}
+                >
+                  <div className="text-3xl font-bold md:text-4xl">{stat.value}</div>
+                  <p className="mt-2 text-sm text-white/85 md:text-base">{stat.label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+            <p className="text-sm text-white/85 md:text-base">
+              Cakewalk makes benefits self-service for the partners SMBs already trust: reseller networks, affinity communities,
+              and embedded payroll or tech platforms. All of that demand flows into one underwriting, servicing, and billing layer,
+              letting carriers scale the long tail without adding headcount.
             </p>
           </div>
-          
-          <div className="col-span-2 p-8">
-            <div className="grid grid-cols-2 gap-6">
-              <motion.div className="flex flex-col items-center text-center" variants={listItemVariants} initial="hidden" animate={isVisible ? "visible" : "hidden"} transition={{
-              delay: 0.8
-            }}>
-                <div className="text-4xl font-bold text-brand-blue mb-2">33.2M</div>
-                <p className="text-gray-700">Small businesses across America</p>
-              </motion.div>
-              
-              <motion.div className="flex flex-col items-center text-center" variants={listItemVariants} initial="hidden" animate={isVisible ? "visible" : "hidden"} transition={{
-              delay: 0.9
-            }}>
-                <div className="text-4xl font-bold text-brand-blue mb-2">5.5M</div>
-                <p className="text-gray-700">Businesses with 1-19 employees</p>
-              </motion.div>
-              
-              <motion.div className="flex flex-col items-center text-center" variants={listItemVariants} initial="hidden" animate={isVisible ? "visible" : "hidden"} transition={{
-              delay: 1.0
-            }}>
-                <div className="text-4xl font-bold text-brand-blue mb-2">648K</div>
-                <p className="text-gray-700">Businesses with 20-49 employees</p>
-              </motion.div>
-              
-              <motion.div className="flex flex-col items-center text-center" variants={listItemVariants} initial="hidden" animate={isVisible ? "visible" : "hidden"} transition={{
-              delay: 1.1
-            }}>
-                <div className="text-4xl font-bold text-brand-blue mb-2">27.2M</div>
-                <p className="text-gray-700">Sole proprietor businesses</p>
-              </motion.div>
-            </div>
-            
-            <motion.div className="mt-8 text-center pt-6 border-t border-gray-100" initial={{
-            opacity: 0
-          }} animate={isVisible ? {
-            opacity: 1
-          } : {
-            opacity: 0
-          }} transition={{
-            delay: 1.2,
-            duration: 0.8
-          }}>
-              <p className="text-xl font-medium text-brand-darkBlue">
-                70% of all new jobs created in 2019 came from small businesses.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
-      
-      {/* The Cakewalk Opportunity */}
-      <motion.div className="mt-16 text-center max-w-3xl mx-auto" initial={{
-      opacity: 0,
-      y: 20
-    }} animate={isVisible ? {
-      opacity: 1,
-      y: 0
-    } : {
-      opacity: 0,
-      y: 20
-    }} transition={{
-      duration: 0.7,
-      delay: 1.3
-    }}>
-        <div className="relative inline-block">
-          <h3 className="text-2xl font-bold bg-clip-text bg-gradient-to-r from-brand-blue to-brand-purple text-brand-blue md:text-3xl">
-            The Cakewalk Opportunity
-          </h3>
-          
-        </div>
-        
-        <p className="mt-6 text-lg text-gray-700">
-          This massive structural problem creates the perfect opportunity for Cakewalk's zero-touch platform
-          and innovative risk distribution model to transform the industry.
-        </p>
-        
-        <div className="mt-8 text-sm text-gray-500 italic">
-          Next: How Cakewalk turns this complex process into a simple, digital experience
-        </div>
-      </motion.div>
-    </>;
+        </motion.div>
+      </div>
+    </motion.section>
+  );
 };
 export default OpportunityHighlight;

@@ -36,7 +36,7 @@ const BarrierTabs = ({
               value="market" 
               className="h-full text-base font-medium data-[state=active]:bg-[#005DFE] data-[state=active]:text-white data-[state=active]:font-semibold"
             >
-              Market Problems
+              Key Drivers
             </TabsTrigger>
             <TabsTrigger 
               value="impact" 

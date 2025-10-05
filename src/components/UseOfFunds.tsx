@@ -5,6 +5,7 @@ import CapitalAllocationStrategy from "./use-of-funds/CapitalAllocationStrategy"
 import AllocationDetails from "./use-of-funds/AllocationDetails";
 import MilestoneBasedDeployment from "./use-of-funds/MilestoneBasedDeployment";
 import SectionFooter from "./use-of-funds/SectionFooter";
+import BottomCornerLogo from "./BottomCornerLogo";
 interface UseOfFundsProps {
   onNavigateNext: () => void;
 }
@@ -84,6 +85,7 @@ const UseOfFunds = ({
         {/* Footer with navigation */}
         <SectionFooter onNavigateNext={onNavigateNext} />
       </div>
+      <BottomCornerLogo />
     </section>;
 };
 export default UseOfFunds;

@@ -3,8 +3,6 @@ import React from "react";
 import { ContentEditProvider } from "@/context/ContentEditContext";
 import { ViewModeProvider } from "@/context/ViewModeContext";
 import IndexContent from "@/components/IndexContent";
-import ContentEditToggle from "@/components/ContentEditToggle";
-import ViewModeToggle from "@/components/ViewModeToggle";
 
 // Export sections for external use (like in App.tsx)
 export { sections } from "@/components/sections/SectionMapping";
@@ -15,8 +13,6 @@ const Index = () => {
     <ContentEditProvider>
       <ViewModeProvider>
         <IndexContent />
-        <ContentEditToggle />
-        <ViewModeToggle />
       </ViewModeProvider>
     </ContentEditProvider>
   );

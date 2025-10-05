@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import NavigationArrow from "../navigation/NavigationArrow";
+import BottomCornerLogo from "../BottomCornerLogo";
 import BarrierHeader from "./BarrierHeader";
 import ECommerceComparison from "./ECommerceComparison";
 import BarrierTabs from "./BarrierTabs";
@@ -49,6 +50,8 @@ const BenefitsBarrier = ({ onNavigateNext }: BenefitsBarrierProps) => {
         <OpportunityHighlight isVisible={isVisible} />
       </div>
       
+      <BottomCornerLogo />
+
       <NavigationArrow 
         onClick={onNavigateNext} 
         className="text-brand-blue hover:text-brand-purple relative z-10"

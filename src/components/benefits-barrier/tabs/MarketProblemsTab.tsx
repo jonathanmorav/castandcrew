@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Users, Shield } from "lucide-react";
+import { Users, Shield, Handshake, LineChart } from "lucide-react";
 
 interface MarketProblemsTabProps {
   isVisible: boolean;
@@ -9,113 +9,83 @@ interface MarketProblemsTabProps {
 
 const MarketProblemsTab = ({ isVisible, currentTab }: MarketProblemsTabProps) => {
   const staggerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0,
+    },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-      }
-    }
+      },
+    },
   };
 
-  const listItemVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 50 }
-    }
+      transition: {
+        type: "spring",
+        stiffness: 50,
+      },
+    },
   };
 
+  const marketDynamics = [
+    {
+      icon: <Handshake size={32} className="text-brand-blue" />,
+      bgColor: "bg-soft-blue",
+      title: "Broker Model Locked on Enterprise",
+      description:
+        "Traditional brokers still chase jumbo medical commissions, so 70% of small firms never get proactive guidance on ancillary or bundled coverage.",
+    },
+    {
+      icon: <Users size={32} className="text-brand-purple" />,
+      bgColor: "bg-soft-purple",
+      title: "No Direct Path to Quality Products",
+      description:
+        "Small employers are funneled through manual, relationship-only channels, leaving modern digital plans effectively out of reach.",
+    },
+    {
+      icon: <Shield size={32} className="text-emerald-500" />,
+      bgColor: "bg-soft-green",
+      title: "Carrier Stacks Can't Serve the Long Tail",
+      description:
+        "Paper-era enrollment systems make low-premium SMB books unprofitable to stand up or service, so they get deprioritized.",
+    },
+    {
+      icon: <LineChart size={32} className="text-amber-500" />,
+      bgColor: "bg-soft-yellow",
+      title: "Small Groups Priced Out Before They Start",
+      description:
+        "Underwriting models bake in volatility and higher loss assumptions, driving premiums 30–50% above enterprise rates and killing adoption.",
+    },
+  ];
+
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Misaligned Broker Models */}
-        <motion.div 
-          className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible && currentTab === "market" ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-blue to-brand-purple"></div>
-          <div className="bg-brand-blue/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-            <Users size={32} className="text-brand-blue" />
-          </div>
-          
-          <h3 className="text-2xl font-semibold mb-4 text-gray-800">Misaligned Broker Models</h3>
-          
-          <motion.ul 
-            className="space-y-4"
-            variants={staggerVariants}
-            initial="hidden"
-            animate={isVisible && currentTab === "market" ? "visible" : "hidden"}
+    <div className="max-w-7xl mx-auto">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+        variants={staggerVariants}
+        initial="hidden"
+        animate={isVisible && currentTab === "market" ? "visible" : "hidden"}
+      >
+        {marketDynamics.map((problem, index) => (
+          <motion.div
+            key={problem.title}
+            variants={cardVariants}
+            className="flex h-full flex-col items-center rounded-2xl border border-white/70 bg-white/90 p-6 text-center shadow-sm backdrop-blur"
           >
-            <motion.li variants={listItemVariants} className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                <div className="w-2 h-2 bg-brand-blue rounded-full"></div>
-              </div>
-              <p className="text-gray-700">Organizational and economic models oriented toward health insurance and large employers</p>
-            </motion.li>
-            
-            <motion.li variants={listItemVariants} className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                <div className="w-2 h-2 bg-brand-blue rounded-full"></div>
-              </div>
-              <p className="text-gray-700">70% of small businesses don't offer health insurance; underserved elsewhere</p>
-            </motion.li>
-            
-            <motion.li variants={listItemVariants} className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                <div className="w-2 h-2 bg-brand-blue rounded-full"></div>
-              </div>
-              <p className="text-gray-700">Traditional commission structures incentivize health insurance over ancillary benefits</p>
-            </motion.li>
-          </motion.ul>
-        </motion.div>
-        
-        {/* Insurance Carrier Limitations */}
-        <motion.div 
-          className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible && currentTab === "market" ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-purple to-brand-teal"></div>
-          <div className="bg-brand-purple/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-            <Shield size={32} className="text-brand-purple" />
-          </div>
-          
-          <h3 className="text-2xl font-semibold mb-4 text-gray-800">Insurance Carrier Limitations</h3>
-          
-          <motion.ul 
-            className="space-y-4"
-            variants={staggerVariants}
-            initial="hidden"
-            animate={isVisible && currentTab === "market" ? "visible" : "hidden"}
-          >
-            <motion.li variants={listItemVariants} className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-brand-purple/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                <div className="w-2 h-2 bg-brand-purple rounded-full"></div>
-              </div>
-              <p className="text-gray-700">Legacy technology infrastructure not designed for digital-first experiences</p>
-            </motion.li>
-            
-            <motion.li variants={listItemVariants} className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-brand-purple/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                <div className="w-2 h-2 bg-brand-purple rounded-full"></div>
-              </div>
-              <p className="text-gray-700">Lacking direct distribution capabilities for small businesses</p>
-            </motion.li>
-            
-            <motion.li variants={listItemVariants} className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-brand-purple/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                <div className="w-2 h-2 bg-brand-purple rounded-full"></div>
-              </div>
-              <p className="text-gray-700">Underwriting models that penalize smaller risk pools</p>
-            </motion.li>
-          </motion.ul>
-        </motion.div>
-      </div>
+            <div className={`${problem.bgColor} mb-4 rounded-xl p-4`}>{problem.icon}</div>
+            <h4 className="mb-3 text-lg font-semibold text-brand-darkBlue">{problem.title}</h4>
+            <p className="text-sm leading-relaxed text-gray-600">{problem.description}</p>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 };

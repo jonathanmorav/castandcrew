@@ -67,27 +67,27 @@ const StructuralObstaclesTab = ({
     }
   ];
 
-  return <div className="max-w-7xl mx-auto">
+  return (
+    <div className="max-w-7xl mx-auto">
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8"
         variants={staggerVariants}
         initial="hidden"
         animate={isVisible && currentTab === "barriers" ? "visible" : "hidden"}
       >
-        {barriers.map((barrier, index) => (
+        {barriers.map((barrier) => (
           <motion.div
-            key={index}
+            key={barrier.title}
             variants={cardVariants}
-            className="flex flex-col items-center text-center"
+            className="flex h-full flex-col items-center rounded-2xl border border-white/70 bg-white/90 p-6 text-center shadow-sm backdrop-blur"
           >
-            <div className={`${barrier.bgColor} p-4 rounded-lg mb-4`}>
-              {barrier.icon}
-            </div>
-            <h4 className="font-medium text-lg text-gray-800 mb-2">{barrier.title}</h4>
-            <p className="text-gray-600 text-sm">{barrier.description}</p>
+            <div className={`${barrier.bgColor} mb-4 rounded-xl p-4`}>{barrier.icon}</div>
+            <h4 className="mb-3 text-lg font-semibold text-brand-darkBlue">{barrier.title}</h4>
+            <p className="text-sm leading-relaxed text-gray-600">{barrier.description}</p>
           </motion.div>
         ))}
       </motion.div>
-    </div>;
+    </div>
+  );
 };
 export default StructuralObstaclesTab;

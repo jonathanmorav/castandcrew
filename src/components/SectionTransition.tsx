@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import cakewalkLogo from '@/assets/cakewalk-logo.png';
 
 interface SectionTransitionProps {
   show: boolean;
@@ -21,7 +22,7 @@ const SectionTransition: React.FC<SectionTransitionProps> = ({
       const timer = setTimeout(() => {
         setIsVisible(false);
         if (onComplete) onComplete();
-      }, 1500); // Match the CSS animation duration
+      }, 700); // Keep this in sync with the motion exit timing
       
       return () => clearTimeout(timer);
     }
@@ -40,7 +41,7 @@ const SectionTransition: React.FC<SectionTransitionProps> = ({
           exit={{ 
             opacity: 0, 
             clipPath: 'circle(0% at center)',
-            transition: { duration: 0.3, delay: 0.9 } 
+            transition: { duration: 0.25, delay: 0.25 } 
           }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-brand-blue text-white"
         >
@@ -54,6 +55,11 @@ const SectionTransition: React.FC<SectionTransitionProps> = ({
               {sectionTitle}
             </motion.h1>
           </div>
+          <img
+            src={cakewalkLogo}
+            alt="Cakewalk Benefits"
+            className="pointer-events-none absolute bottom-6 right-6 h-12 w-auto opacity-80"
+          />
         </motion.div>
       )}
     </AnimatePresence>

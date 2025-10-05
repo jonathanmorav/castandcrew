@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import NavigationArrow from "./navigation/NavigationArrow";
+import BottomCornerLogo from "./BottomCornerLogo";
 import { useDesignOptions } from "@/context/DesignOptionsContext";
 import ClassicDesign from "./competitive-edge/designs/ClassicDesign";
 import ModernDesign from "./competitive-edge/designs/ModernDesign";
@@ -79,6 +80,8 @@ const CompetitiveEdge = ({
         {/* Render the selected design */}
         {renderDesign()}
       </div>
+
+      <BottomCornerLogo />
 
       <NavigationArrow onClick={onNavigateNext} />
 
