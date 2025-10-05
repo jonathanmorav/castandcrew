@@ -1,4 +1,6 @@
-import { Brain, Database, ShieldCheck, Terminal, Wallet, Workflow } from "lucide-react";
+import { Brain, ShieldCheck, Wallet } from "lucide-react";
+import { motion } from "framer-motion";
+import { useMemo, useState } from "react";
 import NavigationArrow from "./navigation/NavigationArrow";
 import BottomCornerLogo from "./BottomCornerLogo";
 
@@ -12,7 +14,7 @@ interface LayerDefinition {
   icon: React.ComponentType<{ className?: string }>;
   badgeClass: string;
   tileClass: string;
-  items: Array<{ title: string; description: string }>;
+  items: Array<{ id: string; title: string; description: string }>;
 }
 
 const layers: LayerDefinition[] = [
@@ -24,14 +26,17 @@ const layers: LayerDefinition[] = [
     tileClass: "bg-brand-lightMint/70 border border-brand-lightMint/60 text-brand-darkBlue",
     items: [
       {
+        id: "member-wallet",
         title: "Member Wallet",
         description: "Digital ID cards, reimbursements, QLE workflows, and claims guidance available 24/7.",
       },
       {
+        id: "partner-agent-os",
         title: "Partner & Agent OS",
         description: "Quoting, contracting, performance analytics, and co-branded storefronts for every channel.",
       },
       {
+        id: "policy-admin-billing",
         title: "Policy Admin & Billing",
         description: "Automated contributions, invoicing, collections, and reconciliation across carriers and payroll.",
       },
@@ -45,10 +50,12 @@ const layers: LayerDefinition[] = [
     tileClass: "bg-soft-blue/80 border border-brand-lightBlue/60 text-brand-darkBlue",
     items: [
       {
+        id: "real-time-underwriting",
         title: "Real-Time Underwriting",
         description: "Data-enriched pricing and recommendations assemble the right bundle for each cohort instantly.",
       },
       {
+        id: "data-intelligence",
         title: "Data Intelligence",
         description: "Machine-learning models monitor persistency, loss performance, and next-best actions across the book.",
       },
@@ -62,14 +69,17 @@ const layers: LayerDefinition[] = [
     tileClass: "bg-soft-purple/80 border border-soft-purple/60 text-brand-darkBlue",
     items: [
       {
-        title: "Embedded Integration Layer",
+        id: "embedded-integration",
+        title: "Embedded Integration",
         description: "Payroll, HRIS, identity, payments, and carrier APIs normalized for rapid partner activation.",
       },
       {
+        id: "security-compliance",
         title: "Security & Compliance",
         description: "SOC2-ready controls, PII vault, audit logging, and observability baked into every service.",
       },
       {
+        id: "scalable-architecture",
         title: "Scalable Architecture",
         description: "Event-driven microservices with health monitoring, SLO tracking, and automated incident response.",
       },
@@ -78,6 +88,28 @@ const layers: LayerDefinition[] = [
 ];
 
 const CakewalkTechPlatform = ({ onNavigateNext }: CakewalkTechPlatformProps) => {
+  const flattenedTiles = useMemo(
+    () =>
+      layers.flatMap((layer) =>
+        layer.items.map((item) => ({
+          ...item,
+          layerId: layer.id,
+          layerTitle: layer.title,
+          badgeClass: layer.badgeClass,
+        }))
+      ),
+    []
+  );
+
+  const [activeTileId, setActiveTileId] = useState<string>(
+    flattenedTiles[0]?.id ?? ""
+  );
+
+  const activeTile = useMemo(
+    () => flattenedTiles.find((tile) => tile.id === activeTileId),
+    [flattenedTiles, activeTileId]
+  );
+
   return (
     <section className="relative min-h-screen bg-white py-16 md:py-24">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-4 md:px-6">
@@ -90,31 +122,54 @@ const CakewalkTechPlatform = ({ onNavigateNext }: CakewalkTechPlatformProps) => 
           </p>
         </header>
 
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-blue/70">Hover or tap a capability to see the detail</p>
+
         <div className="grid gap-6 md:grid-cols-3">
           {layers.map((layer) => (
             <article
               key={layer.id}
               className="flex h-full flex-col rounded-3xl border border-brand-blue/15 bg-white shadow-sm"
             >
-              <div className={`flex items-center gap-3 rounded-t-3xl px-5 py-4 text-sm font-semibold uppercase tracking-[0.25em] ${layer.badgeClass}`}>
+              <div
+                className={`flex items-center gap-3 rounded-t-3xl px-5 py-4 text-sm font-semibold uppercase tracking-[0.25em] ${layer.badgeClass}`}
+              >
                 <layer.icon className="h-5 w-5" />
                 <span>{layer.title}</span>
               </div>
 
               <div className="flex flex-1 flex-col gap-3 p-5">
-                {layer.items.map((item) => (
-                  <div
-                    key={item.title}
-                    className={`rounded-2xl border p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${layer.tileClass}`}
-                  >
-                    <h3 className="text-base font-semibold text-brand-darkBlue">{item.title}</h3>
-                    <p className="mt-2 text-sm text-brand-gray">{item.description}</p>
-                  </div>
-                ))}
+                {layer.items.map((item) => {
+                  const isActive = item.id === activeTileId;
+                  return (
+                    <TechTile
+                      key={item.id}
+                      item={item}
+                      layerClass={layer.tileClass}
+                      isActive={isActive}
+                      onActivate={setActiveTileId}
+                    />
+                  );
+                })}
               </div>
             </article>
           ))}
         </div>
+
+        {activeTile && (
+          <motion.div
+            key={activeTile.id}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="rounded-3xl border border-brand-blue/15 bg-white/90 p-6 shadow-sm"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-blue/70">
+              {activeTile.layerTitle}
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold text-brand-darkBlue">{activeTile.title}</h2>
+            <p className="mt-3 text-sm text-brand-gray md:text-base">{activeTile.description}</p>
+          </motion.div>
+        )}
       </div>
 
       <BottomCornerLogo />
@@ -124,5 +179,27 @@ const CakewalkTechPlatform = ({ onNavigateNext }: CakewalkTechPlatformProps) => 
     </section>
   );
 };
+
+interface TechTileProps {
+  item: { id: string; title: string; description: string };
+  layerClass: string;
+  isActive: boolean;
+  onActivate: (id: string) => void;
+}
+
+const TechTile = ({ item, layerClass, isActive, onActivate }: TechTileProps) => (
+  <motion.button
+    type="button"
+    onMouseEnter={() => onActivate(item.id)}
+    onFocus={() => onActivate(item.id)}
+    onClick={() => onActivate(item.id)}
+    className={`group w-full rounded-2xl border p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-mint focus-visible:outline-offset-2 ${
+      layerClass
+    } ${isActive ? "ring-2 ring-brand-blue ring-offset-2 ring-offset-white" : ""}`}
+  >
+    <h3 className="text-base font-semibold text-brand-darkBlue">{item.title}</h3>
+    <p className="mt-2 text-sm text-brand-gray">{item.description}</p>
+  </motion.button>
+);
 
 export default CakewalkTechPlatform;
