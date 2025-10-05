@@ -117,7 +117,7 @@ const SolutionOverview = ({
         <div className="w-full md:w-5/12 max-w-full mb-6 md:mb-0">
           <div className="flex flex-col items-start gap-2 md:gap-3">
             <h2 className="text-4xl md:text-5xl font-bold text-white font-grotesk w-full">
-              The <span className="text-[#53EDBE]">Cakewalk</span> Solution
+              The <span className="text-[#53EDBE]">Cakewalk</span> Experience
             </h2>
             
             <div className="w-full">

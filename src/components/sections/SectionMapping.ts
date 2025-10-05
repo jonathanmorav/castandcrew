@@ -8,6 +8,7 @@ import WhyNow from "@/components/WhyNow";
 import CakewalkModel from "@/components/CakewalkModel";
 import CompetitiveEdge from "@/components/CompetitiveEdge";
 import CakewalkExperience from "@/components/CakewalkExperience";
+import CakewalkTechPlatform from "@/components/CakewalkTechPlatform";
 import { MultiChannelDistribution } from "@/components/distribution";
 import UnitEconomics from "@/components/UnitEconomics";
 import UseOfFunds from "@/components/UseOfFunds";
@@ -28,6 +29,7 @@ export const sections: DeckSection[] = [
   { id: "solution", title: "Solution Overview" },
   { id: "cakewalk-model", title: "The Cakewalk Model" },
   { id: "cakewalk-experience", title: "The Cakewalk Platform" },
+  { id: "cakewalk-tech", title: "Technology Stack" },
   { id: "competitive-edge", title: "Differentiation for SMBs" },
   { id: "distribution", title: "GTM / Distribution" },
   { id: "unit-economics", title: "Unit Economics" },
