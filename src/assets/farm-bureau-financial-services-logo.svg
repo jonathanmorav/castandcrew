@@ -1,0 +1,13 @@
+<svg width="360" height="200" viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Farm Bureau Financial Services Logo</title>
+  <desc id="desc">Stylized FB mark with red accent above the text Farm Bureau Financial Services.</desc>
+  <rect width="360" height="200" fill="#ffffff" />
+  <g transform="translate(60 24)">
+    <path d="M16 70c0-39 31-70 70-70h64c8 0 14 6 14 14v38c0 8-6 14-14 14H54c-21 0-38 17-38 38 0 8-6 14-14 14S-12 142-12 134V70z" fill="#111"/>
+    <path d="M146 0h44c39 0 70 31 70 70 0 8-6 14-14 14h-48c-8 0-14-6-14-14V14c0-8-6-14-14-14z" fill="#111"/>
+    <path d="M146 58h36c19 0 34 15 34 34 0 7-6 12-12 12h-58c-8 0-14-6-14-14V72c0-8 6-14 14-14z" fill="#111"/>
+    <path d="M88 72h50c8 0 14 6 14 14v26c0 8-6 14-14 14H88c-26 0-48 22-48 48 0 8-6 14-14 14s-14-6-14-14v-12c0-47 39-86 86-86z" fill="#d2261b"/>
+  </g>
+  <text x="180" y="160" text-anchor="middle" font-family="'Times New Roman', serif" font-weight="bold" font-size="36" fill="#111">FARM BUREAU</text>
+  <text x="180" y="194" text-anchor="middle" font-family="'Times New Roman', serif" font-weight="bold" font-size="34" fill="#111">FINANCIAL SERVICES</text>
+</svg>

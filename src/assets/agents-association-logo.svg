@@ -1,0 +1,13 @@
+<svg width="640" height="200" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">The Agents Association Logo</title>
+  <desc id="desc">Red calligraphic letter A with text representing insurance and financial services.</desc>
+  <rect width="640" height="200" fill="white" />
+  <line x1="150" y1="70" x2="610" y2="70" stroke="#231F20" stroke-width="3" />
+  <text x="152" y="60" font-size="22" fill="#231F20" font-family="Georgia, 'Times New Roman', serif">Representing Insurance and Financial Services</text>
+  <g font-family="Georgia, 'Times New Roman', serif" font-weight="bold" fill="#C5151C" stroke="#231F20" stroke-width="2">
+    <text x="60" y="155" font-size="140" transform="rotate(-6 120 140)">A</text>
+  </g>
+  <text x="22" y="105" font-size="40" fill="#C5151C" font-family="Georgia, 'Times New Roman', serif" transform="rotate(-90 60 100)" stroke="#231F20" stroke-width="1">THE</text>
+  <text x="155" y="155" font-size="82" fill="#C5151C" font-family="Georgia, 'Times New Roman', serif" stroke="#231F20" stroke-width="1">Agents</text>
+  <text x="150" y="205" font-size="82" fill="#C5151C" font-family="Georgia, 'Times New Roman', serif" stroke="#231F20" stroke-width="1">Association</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg width="360" height="220" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Michigan Farm Bureau Logo</title>
+  <desc id="desc">Stylized black and red emblem with text Michigan Farm Bureau.</desc>
+  <rect width="360" height="220" fill="#ffffff" />
+  <g transform="translate(50 30)">
+    <path d="M20 78c0-43 35-78 78-78h72c8 0 14 6 14 14v44c0 8-6 14-14 14H62c-23 0-42 19-42 42 0 8-6 14-14 14s-14-6-14-14V78z" fill="#111"/>
+    <path d="M162 0h46c43 0 78 35 78 78 0 8-6 14-14 14h-54c-8 0-14-6-14-14V14c0-8-6-14-14-14z" fill="#111"/>
+    <path d="M162 66h38c21 0 38 17 38 38 0 7-6 13-13 13H162c-8 0-14-6-14-14V80c0-8 6-14 14-14z" fill="#111"/>
+    <path d="M98 80h58c8 0 14 6 14 14v28c0 8-6 14-14 14H98c-30 0-54 24-54 54 0 8-6 14-14 14s-14-6-14-14v-14c0-51 41-92 92-92z" fill="#d2261b"/>
+  </g>
+  <text x="180" y="172" text-anchor="middle" font-family="'Arial Black', 'Arial', sans-serif" font-size="42" fill="#111" letter-spacing="3">MICHIGAN</text>
+  <text x="180" y="210" text-anchor="middle" font-family="'Arial Black', 'Arial', sans-serif" font-size="42" fill="#111" letter-spacing="3">FARM BUREAU</text>
+</svg>

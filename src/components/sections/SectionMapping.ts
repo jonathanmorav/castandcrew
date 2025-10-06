@@ -6,10 +6,10 @@ import BenefitsBarrier from "@/components/benefits-barrier/BenefitsBarrier";
 import SolutionOverview from "@/components/SolutionOverview";
 import WhyNow from "@/components/WhyNow";
 import CakewalkModel from "@/components/CakewalkModel";
-import CompetitiveEdge from "@/components/CompetitiveEdge";
 import CakewalkExperience from "@/components/CakewalkExperience";
 import CakewalkTechPlatform from "@/components/CakewalkTechPlatform";
-import { MultiChannelDistribution } from "@/components/distribution";
+import GTMDistribution from "@/components/GTMDistribution";
+import CarrierPartnerships from "@/components/CarrierPartnerships";
 import UnitEconomics from "@/components/UnitEconomics";
 import UseOfFunds from "@/components/UseOfFunds";
 import Team from "@/components/Team";
@@ -30,8 +30,8 @@ export const sections: DeckSection[] = [
   { id: "cakewalk-model", title: "The Cakewalk Model" },
   { id: "cakewalk-experience", title: "The Cakewalk Platform" },
   { id: "cakewalk-tech", title: "Technology Stack" },
-  { id: "competitive-edge", title: "Differentiation for SMBs" },
   { id: "distribution", title: "GTM / Distribution" },
+  { id: "carrier-partnerships", title: "Carrier Partnerships" },
   { id: "unit-economics", title: "Unit Economics" },
   { id: "use-of-funds", title: "Use of Funds" },
   { id: "team", title: "The Team" },
@@ -48,8 +48,8 @@ export const sectionComponents = {
   "cakewalk-model": CakewalkModel,
   "cakewalk-experience": CakewalkExperience,
   "cakewalk-tech": CakewalkTechPlatform,
-  "competitive-edge": CompetitiveEdge,
-  "distribution": MultiChannelDistribution,
+  "distribution": GTMDistribution,
+  "carrier-partnerships": CarrierPartnerships,
   "unit-economics": UnitEconomics,
   "use-of-funds": UseOfFunds,
   "team": Team,
