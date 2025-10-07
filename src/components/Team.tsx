@@ -23,7 +23,7 @@ const leadership = [
     highlights: [
       "Scaled operations, sales, and strategy at Fabric.",
       "Process optimization specialist across complex workflows.",
-      "Cross-functional leader delivering zero-touch servicing."
+      "Cross-functional leader delivering across operations, strategy, and GTM."
     ]
   },
   {
