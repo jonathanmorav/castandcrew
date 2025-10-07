@@ -45,7 +45,7 @@ const StructuralObstaclesTab = ({
       icon: <Users size={32} className="text-brand-blue" />,
       bgColor: "bg-soft-blue",
       title: "Market Access",
-      description: "SMBs have limited high friction pathways to quality insurance markets"
+      description: "SMBs have high friction and limited pathways to quality insurance markets"
     },
     {
       icon: <Puzzle size={32} className="text-emerald-500" />,
