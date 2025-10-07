@@ -14,7 +14,7 @@ export const benefitItems: BenefitItem[] = [
   {
     icon: "Shield",
     title: "Essential Financial Protection",
-    description: "99% of people can't self-insure against major medical events or loss of income. Group benefits provide access to essential coverage that would otherwise be unattainable for most Americans.",
+    description: "99% of people can't self-insure against major medical events or loss of income due to injury due to injury. Group benefits provide access to essential coverage that would otherwise be unattainable for most Americans.",
     color: "bg-emerald-100/70",
     stats: "",
     hoverColor: "group-hover:shadow-emerald-300/30"
