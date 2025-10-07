@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import StructuralObstaclesTab from "./tabs/StructuralObstaclesTab";
 import MarketProblemsTab from "./tabs/MarketProblemsTab";
-import RealWorldImpactTab from "./tabs/RealWorldImpactTab";
 
 interface BarrierTabsProps {
   isVisible: boolean;
@@ -25,7 +24,7 @@ const BarrierTabs = ({
     >
       <Tabs defaultValue="barriers" value={currentTab} onValueChange={setCurrentTab} className="w-full">
         <div className="flex justify-center mb-8">
-          <TabsList className="grid grid-cols-3 w-full max-w-2xl bg-white shadow-sm h-14">
+          <TabsList className="grid grid-cols-2 w-full max-w-xl bg-white shadow-sm h-14">
             <TabsTrigger 
               value="barriers" 
               className="h-full text-base font-medium data-[state=active]:bg-[#005DFE] data-[state=active]:text-white data-[state=active]:font-semibold"
@@ -38,12 +37,6 @@ const BarrierTabs = ({
             >
               Key Drivers
             </TabsTrigger>
-            <TabsTrigger 
-              value="impact" 
-              className="h-full text-base font-medium data-[state=active]:bg-[#005DFE] data-[state=active]:text-white data-[state=active]:font-semibold"
-            >
-              Real-World Impact
-            </TabsTrigger>
           </TabsList>
         </div>
         
@@ -53,10 +46,6 @@ const BarrierTabs = ({
         
         <TabsContent value="market" className="mt-0">
           <MarketProblemsTab isVisible={isVisible} currentTab={currentTab} />
-        </TabsContent>
-        
-        <TabsContent value="impact" className="mt-0">
-          <RealWorldImpactTab isVisible={isVisible} currentTab={currentTab} />
         </TabsContent>
       </Tabs>
     </motion.div>

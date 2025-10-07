@@ -1,93 +1,93 @@
 
-import { useState, useRef, useEffect } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import NavigationArrow from "./navigation/NavigationArrow";
 import BottomCornerLogo from "./BottomCornerLogo";
-import { useInView } from "@/hooks/use-in-view";
-import { useIsMobile } from "@/hooks/use-mobile";
-
-// Import newly created components
-import HeadlineSection from "./problem/HeadlineSection";
-import ProblemCardsSection from "./problem/ProblemCardsSection";
-import StatsSection from "./problem/StatsSection";
-import BackgroundEffects from "./problem/BackgroundEffects";
+import { problemCards } from "./problem/ProblemData";
 
 interface ProblemStatementProps {
   onNavigateNext: () => void;
 }
 
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+};
+
 const ProblemStatement = ({ onNavigateNext }: ProblemStatementProps) => {
-  const [activeHeadline, setActiveHeadline] = useState<number | null>(null);
-  const isMobile = useIsMobile();
-  
-  // Ref for scroll-based animations
-  const sectionRef = useRef<HTMLElement>(null);
-  
-  // Scroll animation setup
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-  
-  // Section visibility
-  const sectionInView = useInView(sectionRef, { threshold: 0.1 });
-  
-  // Handler for headline visibility changes
-  const handleHeadlineInView = (index: number, inView: boolean) => {
-    if (inView) {
-      setActiveHeadline(index);
-    }
-  };
-
   return (
-    <section 
-      ref={sectionRef}
-      className="min-h-screen w-full flex flex-col items-center justify-center bg-white py-12 sm:py-16 md:py-24 overflow-hidden relative problem-statement"
-      style={{
-        backgroundImage: "radial-gradient(circle at 50% 50%, #EAF2FF, #FFFFFF)"
-      }}
-    >
-      {/* Background effects component */}
-      <BackgroundEffects scrollYProgress={scrollYProgress} />
-      
-      <div className="container px-4 md:px-6 max-w-7xl relative z-10">
-        {/* The Problem Heading */}
-        <motion.h2
-          className="font-grotesk font-bold text-center mb-8 sm:mb-10 md:mb-12 text-[#005DFE] text-3xl md:text-4xl lg:text-5xl px-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: false }}
-          style={{ lineHeight: '1.1' }}
+    <section className="relative min-h-screen overflow-hidden bg-white py-16 md:py-24 lg:py-32">
+      {/* Subtle radial background to mirror other sections */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-brand-lightBlue/20 to-brand-lightMint/30" />
+      <div className="absolute -top-1/3 right-0 h-2/3 w-2/3 -translate-y-6 translate-x-1/4 rounded-full bg-brand-lightBlue opacity-[0.05] blur-3xl" />
+      <div className="absolute -bottom-1/4 left-0 h-1/2 w-1/2 -translate-x-1/3 rounded-full bg-brand-lightMint opacity-[0.08] blur-3xl" />
+
+      <div className="container relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-12 px-4 md:px-6">
+        <motion.header
+          variants={fadeUp}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+          className="text-left md:text-center"
         >
-          The Problem
-        </motion.h2>
+          <motion.div
+            className="inline-flex items-center rounded-full bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-brand-blue shadow-sm"
+            variants={fadeUp}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            The Problem We Solve
+          </motion.div>
+          <motion.h1
+            variants={fadeUp}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-4 font-grotesk text-3xl font-bold text-brand-darkBlue sm:text-4xl md:text-5xl"
+          >
+            Traditional employee benefits were never designed for SMBs
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-4 text-base text-brand-gray md:text-lg"
+          >
+            Owners are forced to choose between no coverage or overpriced plans and manual processes that sap valuable time. Cakewalk closes the access, affordability, and complexity gaps so teams can focus on running their business.
+          </motion.p>
+        </motion.header>
 
-        {/* Problem Statement Headlines */}
-        <HeadlineSection
-          scrollYProgress={scrollYProgress}
-          onHeadlineInView={handleHeadlineInView}
-        />
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {problemCards.map((card, index) => (
+            <motion.article
+              key={card.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group flex h-full flex-col rounded-3xl border border-brand-blue/15 bg-white/90 p-6 shadow-sm backdrop-blur-md transition hover:-translate-y-1 hover:shadow-md"
+            >
+              <div className="flex items-center gap-4">
+                <span
+                  className="flex h-14 w-14 items-center justify-center rounded-full text-white shadow-inner"
+                  style={{ background: `linear-gradient(135deg, ${card.color}, rgba(16, 24, 40, 0.85))` }}
+                >
+                  {card.icon}
+                </span>
+                <h2 className="text-xl font-semibold text-brand-darkBlue">{card.title}</h2>
+              </div>
+              <p className="mt-4 text-sm text-brand-gray md:text-base">{card.description}</p>
+              <span className="mt-6 h-1 w-20 rounded-full bg-brand-blue/20 transition group-hover:bg-brand-mint" />
+            </motion.article>
+          ))}
+        </div>
 
-        {/* Problem Cards Section */}
-        <ProblemCardsSection scrollYProgress={scrollYProgress} />
       </div>
 
       <BottomCornerLogo />
 
-      {/* Navigation Arrow */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.5 }}
-        viewport={{ once: false, amount: 0.8 }}
-        className="mt-8 md:mt-12"
-      >
-        <NavigationArrow 
-          onClick={onNavigateNext} 
-          className="text-brand-blue hover:text-opacity-80"
+      <div className="mt-12 flex justify-center">
+        <NavigationArrow
+          onClick={onNavigateNext}
+          className="text-brand-blue transition-colors hover:text-brand-purple"
         />
-      </motion.div>
+      </div>
     </section>
   );
 };

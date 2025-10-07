@@ -48,7 +48,7 @@ const MarketProblemsTab = ({ isVisible, currentTab }: MarketProblemsTabProps) =>
       bgColor: "bg-soft-purple",
       title: "No Direct Path to Quality Products",
       description:
-        "Small employers are funneled through manual, relationship-only channels, leaving modern digital plans effectively out of reach.",
+        "Small employers are funneled through manual, relationship-only channels, leaving modern digital benefits effectively out of reach.",
     },
     {
       icon: <Shield size={32} className="text-emerald-500" />,

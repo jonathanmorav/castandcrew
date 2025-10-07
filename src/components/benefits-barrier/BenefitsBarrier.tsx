@@ -1,12 +1,9 @@
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import NavigationArrow from "../navigation/NavigationArrow";
 import BottomCornerLogo from "../BottomCornerLogo";
 import BarrierHeader from "./BarrierHeader";
-import ECommerceComparison from "./ECommerceComparison";
 import BarrierTabs from "./BarrierTabs";
-import OpportunityHighlight from "./OpportunityHighlight";
 
 interface BenefitsBarrierProps {
   onNavigateNext: () => void;
@@ -46,8 +43,6 @@ const BenefitsBarrier = ({ onNavigateNext }: BenefitsBarrierProps) => {
           />
         </div>
         
-        {/* Why This Matters section */}
-        <OpportunityHighlight isVisible={isVisible} />
       </div>
       
       <BottomCornerLogo />

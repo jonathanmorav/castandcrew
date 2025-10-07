@@ -40,20 +40,31 @@ const CoverScreen = ({
             />
           </motion.div>
           
-          <motion.p initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.7,
-          delay: 0.2
-        }} style={{
-          fontSize: "clamp(28px, 5vw, 48px)",
-          lineHeight: 1.2,
-          textShadow: "0 2px 10px rgba(0,0,0,0.15)"
-        }} className="font-medium mt-4 md:mt-6 text-white text-5xl">Democratizing Access to Employee Benefits for Small Businesses</motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            style={{
+              fontSize: "clamp(22px, 4vw, 36px)",
+              lineHeight: 1.25,
+              textShadow: "0 2px 10px rgba(0,0,0,0.15)"
+            }}
+            className="font-semibold mt-4 md:mt-6 text-white max-w-[900px] mx-auto"
+          >
+            Our mission is to make high‑quality employee benefits accessible and affordable for every small business—and to empower partners and carriers to serve them at scale.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            style={{
+              fontSize: "clamp(16px, 2.2vw, 20px)",
+              lineHeight: 1.45
+            }}
+            className="mt-3 md:mt-4 text-white/90 max-w-[900px] mx-auto"
+          >
+          </motion.p>
           
           <motion.p className="font-medium mt-6 md:mt-10 text-white/90" initial={{
           opacity: 0

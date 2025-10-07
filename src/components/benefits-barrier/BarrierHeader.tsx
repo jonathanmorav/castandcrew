@@ -29,7 +29,7 @@ const BarrierHeader = ({
       duration: 0.7,
       delay: 0.2
     }} className="mb-6 text-5xl">
-        Breaking Down the Benefits Barrier
+        Breaking Down the Benefits Barrier for SMBs
       </motion.h2>
     </motion.div>;
 };

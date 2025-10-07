@@ -87,7 +87,7 @@ const WorkflowVisualizer = ({ steps }: WorkflowVisualizerProps) => {
       {/* Browser Container */}
       <div className="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-gray-200 hover:border-blue-300 transition-all duration-300">
         {/* Browser Tabs */}
-        <div className="bg-gray-50 border-b border-gray-200 px-2 pt-2">
+        <div className="bg-gray-50 border-b border-gray-200 px-2 pt-2" role="tablist" aria-label="Feature tabs">
           <div className="flex items-center justify-between mb-2">
             <div className="text-xs text-gray-500 font-medium">Click tabs to explore different features</div>
             <div className="flex items-center gap-1 text-xs text-gray-400">
@@ -97,16 +97,19 @@ const WorkflowVisualizer = ({ steps }: WorkflowVisualizerProps) => {
           </div>
           <div className="flex space-x-1">
             {tabs.map((tab) => (
-              <motion.div
+              <motion.button
                 key={tab.id}
-                className={`flex items-center gap-2 px-4 py-3 rounded-t-lg text-sm font-medium cursor-pointer transition-all duration-200 border-2 ${
+                type="button"
+                aria-selected={activeTab === tab.id}
+                role="tab"
+                className={`cursor-pointer flex items-center gap-2 px-4 py-3 rounded-t-lg text-sm font-semibold transition-all duration-200 border ${
                   activeTab === tab.id
-                    ? "bg-white text-gray-900 border-blue-500 shadow-lg transform scale-105"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md hover:border-gray-300 border-transparent hover:transform hover:scale-102"
+                    ? "bg-white text-gray-900 border-blue-500 ring-2 ring-blue-500/20 shadow-md"
+                    : "bg-white/70 text-gray-700 border-brand-mint shadow-sm hover:bg-white hover:text-gray-900 hover:border-brand-mint hover:shadow-md"
                 }`}
                 onClick={() => setActiveTab(tab.id)}
                 whileHover={{ 
-                  scale: activeTab === tab.id ? 1.05 : 1.02,
+                  scale: activeTab === tab.id ? 1.02 : 1.02,
                   transition: { duration: 0.2 }
                 }}
                 whileTap={{ scale: 0.98 }}
@@ -131,7 +134,7 @@ const WorkflowVisualizer = ({ steps }: WorkflowVisualizerProps) => {
                     />
                   )}
                 </span>
-              </motion.div>
+              </motion.button>
             ))}
           </div>
         </div>

@@ -85,7 +85,7 @@ const gtmChannels: Tile[] = [
 const techLayers: Tile[] = [
   {
     id: "ecommerce-shopping",
-    title: "Modern E-commerce Shopping Experience",
+    title: "Modern e-commerce Shopping Experience",
     description: "Modern e-commerce shopping experience for benefits tailored to small businesses.",
   },
   {

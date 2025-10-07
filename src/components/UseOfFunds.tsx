@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ProvenCapitalEfficiency from "./use-of-funds/ProvenCapitalEfficiency";
+import OurAsk from "./use-of-funds/OurAsk";
 import CapitalAllocationStrategy from "./use-of-funds/CapitalAllocationStrategy";
-import AllocationDetails from "./use-of-funds/AllocationDetails";
 import MilestoneBasedDeployment from "./use-of-funds/MilestoneBasedDeployment";
 import SectionFooter from "./use-of-funds/SectionFooter";
 import BottomCornerLogo from "./BottomCornerLogo";
@@ -39,7 +39,7 @@ const UseOfFunds = ({
         }} transition={{
           delay: 0.2
         }}>
-            <span className="text-brand-blue text-sm font-medium">Strategic Financial Planning</span>
+            <span className="text-brand-blue text-sm font-medium">Capital Raise for Our Next Stage of Growth</span>
           </motion.div>
           
           <motion.h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-blue font-grotesk text-center mb-4" initial={{
@@ -73,11 +73,11 @@ const UseOfFunds = ({
         {/* Proven Capital Efficiency */}
         <ProvenCapitalEfficiency />
 
+        {/* Our Ask */}
+        <OurAsk />
+
         {/* Capital Allocation Strategy */}
         <CapitalAllocationStrategy />
-
-        {/* Allocation Details */}
-        <AllocationDetails />
 
         {/* Milestone-Based Capital Deployment */}
         <MilestoneBasedDeployment />

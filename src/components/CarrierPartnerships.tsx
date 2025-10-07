@@ -117,7 +117,7 @@ const CarrierPartnerships = ({ onNavigateNext }: { onNavigateNext: () => void })
             Delegated Value Chain Coverage
           </h1>
           <p className="mt-4 text-base text-brand-gray md:text-lg">
-            Six national carriers entrust Cakewalk with product design, underwriting, distribution, and administration so
+            National carriers entrust Cakewalk with product design, underwriting, distribution, and administration so
             they can reach SMBs faster while keeping claims execution in-house.
           </p>
         </motion.header>
