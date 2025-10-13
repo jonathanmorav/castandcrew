@@ -35,25 +35,25 @@ const partnerColumns: Record<string, string[]> = {
 
 const stageDetails: Record<string, { headline: string; bullets: string[] }> = {
   Distribution: {
-    headline: "Scaled, multi-channel distribution",
+    headline: "Agents stay in the field, Cakewalk runs the engine",
     bullets: [
-      "Reseller and broker alliances push Cakewalk plans while we operate fulfillment end-to-end.",
-      "Affinity communities and self-serve funnels convert warm demand into enrollment without incremental overhead.",
-      "Embedded payroll, HR, and fintech partners feed pre-qualified SMB cohorts straight into our platform.",
+      "Turn-key sales journeys let agents plug prospects into Cakewalk without touching back-office paperwork.",
+      "We handle quoting, enrollment, and compliance workflows so every reseller conversation stays focused on value.",
+      "Shared dashboards surface pipeline and performance, keeping agents selling while Cakewalk fulfils every policy step.",
     ],
   },
   "Product Design": {
-    headline: "Custom products assembled in weeks",
+    headline: "Pre-built, compliant benefits packages",
     bullets: [
-      "Modular benefit components mix medical, ancillary, and financial protections.",
-      "Carrier playbooks let us tailor bundles by industry, wage band, and geography.",
+      "Cakewalk assembles carrier-approved bundles that stay current on pricing, regulations, and contribution rules.",
+      "Agents select from industry-ready templates knowing coverage, filings, and compliance are already handled.",
     ],
   },
   Underwriting: {
-    headline: "Delegated underwriting with real-time data",
+    headline: "Delegated underwriting handled behind the scenes",
     bullets: [
-      "API feeds deliver eligibility, payroll, and risk signals directly to carrier models.",
-      "Automated guardrails keep quoting compliant while shortening cycle time to minutes.",
+      "Real-time data pipes drive instant underwriting decisions without agent follow-up.",
+      "Cakewalk manages approvals, requirements, and carrier coordination so resellers never chase paperwork.",
     ],
   },
   "Risk Participation": {
@@ -64,10 +64,10 @@ const stageDetails: Record<string, { headline: string; bullets: string[] }> = {
     ],
   },
   Admin: {
-    headline: "Consolidated admin and service",
+    headline: "Embedded billing, compliance, and servicing",
     bullets: [
-      "Billing, compliance, and member servicing run through one zero-touch platform.",
-      "Employers and carriers see the same source-of-truth data in real time.",
+      "Cakewalk automates employer onboarding, premium collection, and remittance across every carrier partner.",
+      "Continuous compliance monitoring, member support, and renewals are handled centrally so agents can stay in market.",
     ],
   },
   "Claim Mgmt": {
@@ -107,28 +107,9 @@ const CakewalkModel = ({ onNavigateNext }: CakewalkModelProps) => {
             <h1 className="mt-4 text-3xl font-bold text-brand-darkBlue md:text-5xl">
               The Cakewalk Model
             </h1>
-            <p className="mt-2 text-xl font-semibold text-brand-blue">A digital first experience across the entire value chain</p>
+            <p className="mt-2 text-xl font-semibold text-brand-blue">A digital first experience across the entire value chain making agent-led sales easy and profitable</p>
           </div>
 
-          <motion.ul
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="grid gap-2 text-base text-brand-darkBlue md:text-lg"
-          >
-            {[
-              "Scaled distribution",
-              "Custom products",
-              "Efficient risk pooling & underwriting",
-              "Consolidated administration",
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-2 text-right lg:text-left">
-                <span className="mt-1 text-brand-blue">→</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </motion.ul>
         </div>
 
         <div className="overflow-hidden rounded-3xl border border-brand-lightBlue/60 bg-white/95 shadow-lg">

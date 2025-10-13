@@ -51,7 +51,7 @@ const CoverScreen = ({
             }}
             className="font-semibold mt-4 md:mt-6 text-white max-w-[900px] mx-auto"
           >
-            Our mission is to make high‑quality employee benefits accessible and affordable for every small business—and to empower partners and carriers to serve them at scale.
+            Cakewalk Agent Partnership Program
           </motion.h1>
 
           <motion.p
@@ -59,39 +59,12 @@ const CoverScreen = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             style={{
-              fontSize: "clamp(16px, 2.2vw, 20px)",
-              lineHeight: 1.45
+              fontSize: "clamp(18px, 3vw, 26px)",
+              lineHeight: 1.3
             }}
-            className="mt-3 md:mt-4 text-white/90 max-w-[900px] mx-auto"
+            className="mt-3 md:mt-4 text-white/90 max-w-[900px] mx-auto font-medium"
           >
-          </motion.p>
-          
-          <motion.p className="font-medium mt-6 md:mt-10 text-white/90" initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          duration: 0.7,
-          delay: 0.4
-        }} style={{
-          fontSize: "clamp(18px, 3vw, 26px)",
-          lineHeight: 1.3
-        }}>
-            Seed Round Deck
-          </motion.p>
-          
-          <motion.p className="mt-2 md:mt-4 text-white/80" initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          duration: 0.7,
-          delay: 0.6
-        }} style={{
-          fontSize: "clamp(14px, 2vw, 18px)",
-          lineHeight: 1.6
-        }}>
-            October 2025
+            Our mission is to make high‑quality employee benefits accessible and affordable for every small business—and to empower partners and carriers to serve them at scale.
           </motion.p>
         </div>
       </div>

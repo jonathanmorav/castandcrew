@@ -1,7 +1,9 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import { Check, X } from "lucide-react";
 import NavigationArrow from "./navigation/NavigationArrow";
 import { useInView } from "@/hooks/use-in-view";
+import { cn } from "@/lib/utils";
 import cakewalkLogo from "@/assets/cakewalk-logo.png";
 
 interface WhyNowProps {
@@ -23,16 +25,81 @@ const labelVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
+type ComparisonValue = string | boolean;
+
+const comparisonColumns = [
+  { title: "", meta: "Instant", logo: cakewalkLogo, alt: "Cakewalk" },
+  { title: "Traditional EB Brokers", meta: "1–4 weeks" },
+];
+
+const comparisonRows: { label: string; values: ComparisonValue[]; highlight?: boolean }[] = [
+  {
+    label: "Speed of application",
+    values: ["Instant", "1–4 weeks"],
+    highlight: true,
+  },
+  {
+    label: "Approval rates",
+    values: ["99%", "45%"],
+    highlight: true,
+  },
+  {
+    label: "Competitive compensation",
+    values: [true, false],
+  },
+  {
+    label: "Fast payments",
+    values: [true, false],
+  },
+  {
+    label: "Agent app & client self-serve app",
+    values: [true, false],
+  },
+  {
+    label: "Real-time client tracking",
+    values: [true, false],
+  },
+  {
+    label: "Built-in tools and knowledge base",
+    values: [true, false],
+  },
+  {
+    label: "Ability to profitably service companies all the way from independent contractors to teams of 20 or larger",
+    values: [true, false],
+  },
+];
+
 const WhyNow = ({ onNavigateNext }: WhyNowProps) => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const isInView = useInView(sectionRef, { threshold: 0.2 });
+
+  const renderCell = (value: ComparisonValue) => {
+    if (typeof value === "string") {
+      return <span className="text-base font-semibold text-brand-darkBlue">{value}</span>;
+    }
+
+    return value ? (
+      <span
+        className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-mint/15 text-brand-teal"
+        aria-label="Available"
+      >
+        <Check className="h-5 w-5" aria-hidden="true" />
+      </span>
+    ) : (
+      <span
+        className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-lightBlue/20 text-brand-gray"
+        aria-label="Not available"
+      >
+        <X className="h-5 w-5" aria-hidden="true" />
+      </span>
+    );
+  };
 
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen overflow-hidden bg-white py-16 md:py-24"
     >
-
       <div className="container relative z-10 mx-auto flex min-h-[60vh] flex-col justify-center px-4 md:px-6">
         <motion.div
           variants={textVariants}
@@ -42,151 +109,105 @@ const WhyNow = ({ onNavigateNext }: WhyNowProps) => {
           className="mb-10 md:mb-16"
         >
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-blue">
-            Why Now?
+            Agent Experience
           </span>
-          <h2 className="mt-4 max-w-2xl font-grotesk text-3xl font-bold text-brand-darkBlue md:text-5xl">
-            Why Now? Why Cakewalk?
+          <h2 className="mt-4 max-w-3xl font-grotesk text-3xl font-bold text-brand-darkBlue md:text-5xl whitespace-nowrap">
+            World Class Agent Experience
           </h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-gray-600 md:text-xl">
-            Cakewalk sits at the intersection of deep industry experience, technology, and a distribution void that incumbents can't fill fast enough.
+          <p className="mt-3 max-w-2xl text-lg leading-relaxed text-gray-600 md:text-xl">
+            Enabling agents to sell small businesses employee benefits, profitably, and at scale.
           </p>
         </motion.div>
 
-        <div className="flex flex-col items-center justify-center">
-          <div className="relative mx-auto w-full max-w-[1200px] px-4">
-            {/* Desktop labels container */}
-            <motion.div
-              variants={labelVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-              className="relative hidden md:block"
-            >
-              <div className="relative flex items-center justify-center">
-                {/* Left label - Technology Maturity */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                  <div className="max-w-[260px] text-right pr-8">
-                    <span className="text-lg font-semibold text-brand-blue">
-                      Technology Maturity
-                    </span>
-                    <div className="ml-auto mt-2 h-[2px] w-14 bg-brand-blue" />
-                    <p className="mt-3 text-sm leading-relaxed text-gray-700 text-left">
-                      Emerging technologies now blend real-time data, instant underwriting, and AI guidance—clearing the friction that kept markets untapped and products on the shelf. Cakewalk plugs into that ecosystem with a platform that delivers frictionless digital experiences for carriers, agents, and small businesses alike.
-                    </p>
-                  </div>
-                  {/* Line from logo to left label */}
-                  <svg className="absolute left-full top-1/2 ml-2 h-2 w-[140px] -translate-y-1/2" aria-hidden="true">
-                    <line x1="140" y1="4" x2="10" y2="4" stroke="#53EDBE" strokeWidth="1.5" />
-                  </svg>
-                </div>
-
-                {/* Central logo */}
-                <motion.div
-                  variants={diagramVariants}
-                  initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
-                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-                  className="flex h-[320px] w-[320px] flex-shrink-0 items-center justify-center"
-                >
-                  <img
-                    src={cakewalkLogo}
-                    alt="Cakewalk Benefits logo"
-                    className="h-auto w-full"
-                  />
-                </motion.div>
-
-                {/* Right label - Insurance Company Orientation */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                  {/* Line from logo to right label */}
-                  <svg className="absolute right-full top-1/2 mr-2 h-2 w-[140px] -translate-y-1/2" aria-hidden="true">
-                    <line x1="0" y1="4" x2="130" y2="4" stroke="#53EDBE" strokeWidth="1.5" />
-                  </svg>
-                  <div className="max-w-[220px] text-left pl-8">
-                    <span className="text-lg font-semibold text-brand-blue">
-                      Carriers Hungry for New Distribution Partners
-                    </span>
-                    <div className="mt-2 h-[2px] w-14 bg-brand-blue" />
-                    <p className="mt-3 text-sm leading-relaxed text-gray-700">
-                      Growth-starved insurers are open to delegating authority to tech-forward partners who can deliver new segments. Cakewalk gives them turnkey access to a largely untapped market that they cannot serve with their existing capabilities.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom label - Structural Shift in Labor Force */}
-              <div className="mt-12 flex justify-center">
-                <div className="relative max-w-[480px] text-center">
-                  {/* Line from logo to bottom label */}
-                  <svg className="absolute left-1/2 bottom-full mb-4 h-[100px] w-2 -translate-x-1/2" aria-hidden="true">
-                    <line x1="4" y1="0" x2="4" y2="90" stroke="#53EDBE" strokeWidth="1.5" />
-                  </svg>
-                  <span className="text-lg font-semibold text-brand-blue">
-                    Structural Shift in Labor Force
-                  </span>
-                  <div className="mx-auto mt-2 h-[2px] w-14 bg-brand-blue" />
-                  <p className="mt-3 text-sm leading-relaxed text-gray-700 text-left">
-                    People now decide how, where, and how much they work, and legacy benefits can't flex with that "new normal." Cakewalk is re-orienting insurance to the economy of tomorrow—tracking real work patterns so coverage adjusts as fluidly as modern teams do.
+        <motion.div
+          variants={labelVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
+          className="mt-7 w-full"
+        >
+          <div className="relative overflow-hidden rounded-3xl border border-brand-lightBlue/40 bg-white/95 text-brand-darkBlue shadow-[0_20px_60px_rgba(0,93,254,0.08)]">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-lightBlue/20 via-white/40 to-brand-mint/20 opacity-80" />
+            <div className="relative">
+              <div className="flex flex-wrap items-center gap-4 border-b border-brand-lightBlue/30 bg-brand-lightBlue/15 p-6 backdrop-blur-sm">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-blue/70">
+                    Agent enablement
+                  </p>
+                  <p className="mt-2 text-2xl font-semibold text-brand-darkBlue">
+                    Why agents scale faster with Cakewalk
+                  </p>
+                  <p className="text-sm text-brand-gray">
+                    A comparison of the support agents receive across distribution partners.
                   </p>
                 </div>
               </div>
-            </motion.div>
 
-            {/* Mobile logo */}
-            <motion.div
-              variants={diagramVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-              className="relative mx-auto flex h-[280px] w-[280px] items-center justify-center md:hidden"
-            >
-              <img
-                src={cakewalkLogo}
-                alt="Cakewalk Benefits logo"
-                className="h-auto w-full"
-              />
-            </motion.div>
+              <div className="overflow-hidden">
+                <div className="grid grid-cols-[minmax(220px,1.1fr)_repeat(2,minmax(0,1fr))] border-b border-brand-lightBlue/30 bg-brand-lightBlue/15">
+                  <div className="p-4 text-xs font-semibold uppercase tracking-[0.3em] text-brand-blue/70">
+                    Capability
+                  </div>
+                  {comparisonColumns.map((column, index) => (
+                    <div
+                      key={column.title || column.meta || index}
+                      className={cn(
+                        "flex flex-col items-center justify-center gap-2 p-4 text-center",
+                        index === 0 ? "" : "border-l border-brand-lightBlue/30"
+                      )}
+                    >
+                      {column.logo ? (
+                        <>
+                          <img src={column.logo} alt={column.alt ?? column.title} className="h-8 w-auto" />
+                          {column.title ? (
+                            <span className="text-sm font-semibold text-brand-darkBlue">{column.title}</span>
+                          ) : null}
+                        </>
+                      ) : (
+                        <span className="text-sm font-semibold text-brand-darkBlue">{column.title}</span>
+                      )}
+                      <span className="text-xs font-medium uppercase tracking-[0.3em] text-brand-blue/60">
+                        {column.meta}
+                      </span>
+                    </div>
+                  ))}
+                </div>
 
-            {/* Mobile labels stacked below diagram */}
-            <motion.div
-              variants={labelVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-              className="mt-8 flex w-full flex-col gap-5 text-center md:hidden"
-            >
-              <div>
-                <span className="text-base font-semibold text-brand-blue">
-                  Technology Maturity
-                </span>
-                <div className="mx-auto mt-2 h-[2px] w-14 bg-brand-blue" />
-                <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                  Emerging technologies now blend real-time data, instant underwriting, and AI guidance—clearing the friction that kept markets untapped and products on the shelf. Cakewalk plugs into that ecosystem with a platform that delivers frictionless digital experiences for carriers, agents, and small businesses alike.
-                </p>
+                {comparisonRows.map((row, rowIndex) => (
+                  <div
+                    key={row.label}
+                    className={cn(
+                      "grid grid-cols-[minmax(220px,1.1fr)_repeat(2,minmax(0,1fr))] border-b border-brand-lightBlue/25 last:border-b-0",
+                      row.highlight
+                        ? "bg-brand-lightBlue/20"
+                        : rowIndex % 2 === 0
+                          ? "bg-white"
+                          : "bg-brand-cream/60"
+                    )}
+                  >
+                    <div className="flex items-center p-5">
+                      <span className="text-base font-semibold text-brand-darkBlue">{row.label}</span>
+                    </div>
+                    {row.values.map((value, colIndex) => (
+                      <div
+                        key={`${row.label}-${colIndex}`}
+                        className={cn(
+                          "flex items-center justify-center p-5",
+                          colIndex === 0 ? "" : "border-l border-brand-lightBlue/25"
+                        )}
+                      >
+                        {renderCell(value)}
+                      </div>
+                    ))}
+                  </div>
+                ))}
               </div>
-              <div>
-                <span className="text-base font-semibold text-brand-blue">
-                  Carriers Hungry for New Distribution Partners
-                </span>
-                <div className="mx-auto mt-2 h-[2px] w-14 bg-brand-blue" />
-                <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                  Growth-starved insurers are open to delegating authority to tech-forward partners who can deliver new segments. Cakewalk gives them turnkey access to a largely untapped market that they cannot serve with their existing capabilities.
-                </p>
-              </div>
-              <div>
-                <span className="text-base font-semibold text-brand-blue">
-                  Structural Shift in Labor Force
-                </span>
-                <div className="mx-auto mt-2 h-[2px] w-14 bg-brand-blue" />
-                <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                  People now decide how, where, and how much they work, and legacy benefits can't flex with that "new normal." Cakewalk is re-orienting insurance to the economy of tomorrow—tracking real work patterns so coverage adjusts as fluidly as modern teams do.
-                </p>
-              </div>
-            </motion.div>
+            </div>
           </div>
-        </div>
+        </motion.div>
+
       </div>
 
-      {/* Bottom-right logo */}
       <motion.div
         variants={diagramVariants}
         initial="hidden"

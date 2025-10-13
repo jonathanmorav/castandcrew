@@ -11,7 +11,6 @@ interface BenefitsBarrierProps {
 
 const BenefitsBarrier = ({ onNavigateNext }: BenefitsBarrierProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [currentTab, setCurrentTab] = useState("barriers");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -34,13 +33,9 @@ const BenefitsBarrier = ({ onNavigateNext }: BenefitsBarrierProps) => {
         {/* Header Section */}
         <BarrierHeader isVisible={isVisible} />
 
-        {/* Tabs for Different Problem Aspects */}
+        {/* Opportunity cards */}
         <div className="mt-8 md:mt-12">
-          <BarrierTabs
-            isVisible={isVisible}
-            currentTab={currentTab}
-            setCurrentTab={setCurrentTab}
-          />
+          <BarrierTabs isVisible={isVisible} />
         </div>
         
       </div>

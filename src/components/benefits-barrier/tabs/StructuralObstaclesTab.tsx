@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
-import { FileX, Users, Puzzle, DollarSign, Clock } from "lucide-react";
+import { Briefcase, Share2, Star } from "lucide-react";
 interface StructuralObstaclesTabProps {
   isVisible: boolean;
-  currentTab: string;
 }
 const StructuralObstaclesTab = ({
-  isVisible,
-  currentTab
+  isVisible
 }: StructuralObstaclesTabProps) => {
   const staggerVariants = {
     hidden: {
@@ -36,44 +34,32 @@ const StructuralObstaclesTab = ({
 
   const barriers = [
     {
-      icon: <FileX size={32} className="text-brand-purple" />,
+      icon: <Briefcase size={32} className="text-brand-purple" />,
       bgColor: "bg-soft-purple",
-      title: "Knowledge Gap",
-      description: "Small business owners lack specialized HR expertise to navigate complex benefit options"
+      title: "Transform Your Role",
+      description: "Evolve from insurance seller to trusted business advisor by offering comprehensive benefits solutions that solve real employer challenges."
     },
     {
-      icon: <Users size={32} className="text-brand-blue" />,
+      icon: <Star size={32} className="text-brand-blue" />,
       bgColor: "bg-soft-blue",
-      title: "Market Access",
-      description: "SMBs have high friction and limited pathways to quality insurance markets"
+      title: "Stand Out From Competition",
+      description: "Differentiate yourself from competitors who only sell P&C or life insurance with a full-service benefits offering."
     },
     {
-      icon: <Puzzle size={32} className="text-emerald-500" />,
+      icon: <Share2 size={32} className="text-emerald-500" />,
       bgColor: "bg-soft-green",
-      title: "Product Limitations",
-      description: "Inconsistent availability with fewer low quality options than enterprise solutions"
-    },
-    {
-      icon: <DollarSign size={32} className="text-amber-500" />,
-      bgColor: "bg-soft-yellow",
-      title: "Cost Disadvantage",
-      description: "30-50% higher premiums than large enterprises for equivalent coverage"
-    },
-    {
-      icon: <Clock size={32} className="text-orange-500" />,
-      bgColor: "bg-soft-orange",
-      title: "Time Investment",
-      description: "Manual processes requiring weeks or months to implement"
+      title: "Capture Referral Revenue",
+      description: "Benefits clients naturally lead to personal lines opportunities and commercial insurance renewals across their entire business."
     }
   ];
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8"
+        className="grid grid-cols-1 gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3"
         variants={staggerVariants}
         initial="hidden"
-        animate={isVisible && currentTab === "barriers" ? "visible" : "hidden"}
+        animate={isVisible ? "visible" : "hidden"}
       >
         {barriers.map((barrier) => (
           <motion.div

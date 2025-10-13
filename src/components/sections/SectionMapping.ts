@@ -1,19 +1,11 @@
-
 import CoverScreen from "@/components/CoverScreen";
 import ProblemStatement from "@/components/ProblemStatement";
 import WhyBenefitsMatter from "@/components/WhyBenefitsMatter";
 import BenefitsBarrier from "@/components/benefits-barrier/BenefitsBarrier";
-import TAMOpportunity from "@/components/TAMOpportunity";
 import SolutionOverview from "@/components/SolutionOverview";
 import WhyNow from "@/components/WhyNow";
 import CakewalkModel from "@/components/CakewalkModel";
-import CakewalkExperience from "@/components/CakewalkExperience";
-import CakewalkTechPlatform from "@/components/CakewalkTechPlatform";
-import GTMDistribution from "@/components/GTMDistribution";
-import CarrierPartnerships from "@/components/CarrierPartnerships";
-import UnitEconomics from "@/components/UnitEconomics";
-import UseOfFunds from "@/components/UseOfFunds";
-import Team from "@/components/Team";
+import ResellerValue from "@/components/ResellerValue";
 
 export type DeckSection = {
   id: string;
@@ -25,18 +17,11 @@ export const sections: DeckSection[] = [
   { id: "cover", title: "Cover" },
   { id: "problem", title: "Problem Statement" },
   { id: "why", title: "Why Benefits Matter" },
-  { id: "barriers", title: "The Problem - Expanded" },
-  { id: "tam", title: "Total Addressable Market" },
-  { id: "why-now", title: "Why Now" },
-  { id: "solution", title: "Solution Overview" },
+  { id: "barriers", title: "The Agent Opportunity" },
+  { id: "why-now", title: "Agent Experience" },
   { id: "cakewalk-model", title: "The Cakewalk Model" },
-  { id: "cakewalk-experience", title: "The Cakewalk Platform" },
-  { id: "cakewalk-tech", title: "Technology Stack" },
-  { id: "distribution", title: "GTM / Distribution" },
-  { id: "carrier-partnerships", title: "Carrier Partnerships" },
-  { id: "unit-economics", title: "Unit Economics" },
-  { id: "use-of-funds", title: "Use of Funds" },
-  { id: "team", title: "The Team" },
+  { id: "solution", title: "Solution Overview" },
+  { id: "reseller-value", title: "Reseller Value Proposition" },
 ];
 
 // Mapping of section IDs to their respective components
@@ -45,15 +30,8 @@ export const sectionComponents = {
   "problem": ProblemStatement,
   "why": WhyBenefitsMatter,
   "barriers": BenefitsBarrier,
-  "tam": TAMOpportunity,
   "why-now": WhyNow,
   "solution": SolutionOverview,
   "cakewalk-model": CakewalkModel,
-  "cakewalk-experience": CakewalkExperience,
-  "cakewalk-tech": CakewalkTechPlatform,
-  "distribution": GTMDistribution,
-  "carrier-partnerships": CarrierPartnerships,
-  "unit-economics": UnitEconomics,
-  "use-of-funds": UseOfFunds,
-  "team": Team,
+  "reseller-value": ResellerValue,
 };
