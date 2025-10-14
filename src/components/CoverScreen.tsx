@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import NavigationArrow from "./navigation/NavigationArrow";
 import VantaAnimation from "./cover/VantaAnimation";
-import cakewalkLogo from "@/assets/cakewalk-logo.png";
 interface CoverScreenProps {
   onNavigateNext: () => void;
 }
@@ -15,37 +14,23 @@ const CoverScreen = ({
       <VantaAnimation />
       
       <div className="container px-4 md:px-6 flex flex-col items-center justify-center text-center relative z-10">
-        <div className="max-w-[800px] mx-auto">
-          <motion.div 
-            initial={{
-              opacity: 0,
-              y: -20
-            }} 
-            animate={{
-              opacity: 1,
-              y: 0
-            }} 
-            transition={{
-              duration: 0.7
-            }}
-            className="flex justify-center items-center"
+        <div className="max-w-[900px] mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="font-grotesk font-bold uppercase tracking-wide text-white"
+            style={{ fontSize: "clamp(28px, 6vw, 56px)", textShadow: "0 2px 20px rgba(0,0,0,0.25)" }}
           >
-            <img 
-              src={cakewalkLogo} 
-              alt="Cakewalk Benefits" 
-              className="w-full max-w-[600px] h-auto"
-              style={{
-                filter: "drop-shadow(0 2px 20px rgba(0,0,0,0.15))"
-              }}
-            />
-          </motion.div>
-          
+            Cast & Crew
+          </motion.h2>
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             style={{
-              fontSize: "clamp(22px, 4vw, 36px)",
+              fontSize: "clamp(24px, 4.5vw, 42px)",
               lineHeight: 1.25,
               textShadow: "0 2px 10px rgba(0,0,0,0.15)"
             }}
