@@ -51,7 +51,7 @@ const CoverScreen = ({
             }}
             className="font-semibold mt-4 md:mt-6 text-white max-w-[900px] mx-auto"
           >
-            Cakewalk Agent Partnership Program
+            Cast & Crew Overview Session
           </motion.h1>
 
           <motion.p
@@ -64,7 +64,7 @@ const CoverScreen = ({
             }}
             className="mt-3 md:mt-4 text-white/90 max-w-[900px] mx-auto font-medium"
           >
-            Our mission is to make high‑quality employee benefits accessible and affordable for every small business—and to empower partners and carriers to serve them at scale.
+            October 15, 2025
           </motion.p>
         </div>
       </div>
