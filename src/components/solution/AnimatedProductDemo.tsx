@@ -34,7 +34,8 @@ const AnimatedProductDemo = () => {
 
   // Auto-advance through the demo with timing
   useEffect(() => {
-    const stepTimings = [8000, 7500, 4000, 7500]; // Time to stay on each step (ms) - Step 0, 1, 2, 3
+    // Make registration steps (0 and 1) 50% faster
+    const stepTimings = [4000, 3750, 4000, 7500]; // ms for steps 0,1,2,3
     
     if (currentStep < 3 && isLooping) { // Stop at step 3 (dashboard) unless manually restarted
       const timer = setTimeout(() => {
