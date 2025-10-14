@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Lightbulb, Zap, Users, LineChart, ChevronDown } from "lucide-react";
 import NavigationArrow from "./navigation/NavigationArrow";
@@ -92,7 +92,21 @@ const SolutionOverview = ({
   onNavigateNext
 }: SolutionOverviewProps) => {
   const isMobile = useIsMobile();
-  return <section className="relative w-full min-h-[1200px] bg-[#00348f] flex flex-col items-center justify-center overflow-hidden">
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  // Center this slide in the viewport when it mounts to avoid loading mid‑page
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (el && typeof el.scrollIntoView === "function") {
+      // Use instant behavior to prevent distracting animation during deck navigation
+      el.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "center" });
+    } else {
+      // Fallback: ensure top
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    }
+  }, []);
+
+  return <section ref={sectionRef} className="relative w-full min-h-screen bg-[#00348f] flex flex-col items-center justify-center overflow-hidden">
       {/* Animated Background Blurs */}
       <motion.div style={{
       top: "-390.3px",
