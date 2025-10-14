@@ -31,6 +31,16 @@ const WorkflowVisualizer = ({ steps }: WorkflowVisualizerProps) => {
       component: <AnimatedProductDemo />
     },
     {
+      id: "health-decision-flow",
+      title: "Health Decision Flow",
+      url: "https://preview--biz-health-pathfinder.lovable.app/",
+      component: <WebsiteEmbed 
+        title="Health Decision Flow"
+        url="https://preview--biz-health-pathfinder.lovable.app/"
+        description="Guided pathfinder for selecting health coverage options"
+      />
+    },
+    {
       id: "underwriting",
       title: "Real Time Underwriting & Shopping",
       url: "https://showcase.john.cakewalkinsurance.com/?a=taa&age=40&zipCode=54545&annualSalary=50000&reg=true&call=true&mode=compact",
@@ -76,6 +86,8 @@ const WorkflowVisualizer = ({ steps }: WorkflowVisualizerProps) => {
         return 'cakewalkbenefits.com/seamless-checkout-billing-setup';
       case 'benefits-wallet':
         return 'cakewalkbenefits.com/policyholders-insurance-wallet';
+      case 'health-decision-flow':
+        return 'cakewalkbenefits.com/health-decision-flow';
       default:
         return 'cakewalkbenefits.com';
     }
