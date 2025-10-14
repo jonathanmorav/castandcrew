@@ -53,8 +53,8 @@ const ProvenCapitalEfficiency = () => {
         </article>
 
         <article className="rounded-2xl border border-brand-blue/15 bg-white/95 p-6 shadow-md">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-blue/70">October 2025 Snapshot</p>
-          <h3 className="mt-2 text-lg font-semibold text-brand-darkBlue">Cakewalk October 2025</h3>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-blue/70">October 15, 2025 Snapshot</p>
+          <h3 className="mt-2 text-lg font-semibold text-brand-darkBlue">Cakewalk October 15, 2025</h3>
           <ul className="mt-4 space-y-3">
             <li className={listStyles}>
               <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-mint/20">
