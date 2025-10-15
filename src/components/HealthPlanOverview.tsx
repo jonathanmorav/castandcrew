@@ -301,7 +301,7 @@ const HealthPlanOverview = ({ onNavigateNext }: { onNavigateNext: () => void }) 
             Health Plan Option Overview
           </div>
           <h1 className="mt-4 font-grotesk text-3xl font-bold text-brand-darkBlue sm:text-4xl md:text-5xl">
-            Fundamental Care vs. Hooray Health
+            Fundamental Care & Hooray Health
           </h1>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-blue/20 bg-white px-3 py-1 text-sm text-brand-darkBlue"><ShieldCheck className="h-4 w-4 text-brand-blue" /> $0 Deductible (Both)</span>
