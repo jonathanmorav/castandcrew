@@ -281,6 +281,36 @@ const CategoryTable = ({ categories }: { categories: Category[] }) => (
   </div>
 );
 
+const pricingRows: Row[] = [
+  { label: "EE", fcld: "$300.00", hooray: "$215.95" },
+  { label: "EE+Spouse", fcld: "$600.00", hooray: "$380.27" },
+  { label: "EE + Children", fcld: "$550.00", hooray: "$361.08" },
+  { label: "Family", fcld: "$750.00", hooray: "$543.76" },
+];
+
+const PricingTable = () => (
+  <div className="overflow-x-auto rounded-3xl border border-brand-blue/15 bg-white/95 shadow-md">
+    <Table>
+      <TableHeader>
+        <TableRow className="bg-gradient-to-r from-soft-blue/60 to-brand-lightMint/40 text-brand-darkBlue">
+          <TableHead className="w-[30%] text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">Coverage Tier</TableHead>
+          <TableHead className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">FCLD (In/Out)</TableHead>
+          <TableHead className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">Hooray Health (MAX $60,000)</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {pricingRows.map((row, idx) => (
+          <TableRow key={`pricing-${row.label}`} className={idx % 2 === 0 ? "bg-white" : "bg-brand-cream/60"}>
+            <TableCell className="font-medium text-brand-darkBlue">{row.label}</TableCell>
+            <TableCell>{renderCell(row.fcld)}</TableCell>
+            <TableCell>{renderCell(row.hooray)}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </div>
+);
+
 const HealthPlanOverview = ({ onNavigateNext }: { onNavigateNext: () => void }) => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-white py-16 md:py-24">
@@ -313,9 +343,10 @@ const HealthPlanOverview = ({ onNavigateNext }: { onNavigateNext: () => void }) 
         {/* Tabs */}
         <Tabs defaultValue="coverage" className="w-full">
           <div className="flex justify-center">
-            <TabsList className="grid grid-cols-4 gap-1 p-1 bg-gray-100 rounded-xl w-full max-w-4xl">
+            <TabsList className="grid grid-cols-5 gap-1 p-1 bg-gray-100 rounded-xl w-full max-w-4xl">
               <TabsTrigger value="coverage" className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white px-3 py-2 rounded-lg">Coverage</TabsTrigger>
               <TabsTrigger value="network" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-3 py-2 rounded-lg">Network & Access</TabsTrigger>
+              <TabsTrigger value="pricing" className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white px-3 py-2 rounded-lg">Pricing</TabsTrigger>
               <TabsTrigger value="outcomes" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white px-3 py-2 rounded-lg">Health Outcomes</TabsTrigger>
               <TabsTrigger value="concierge" className="data-[state=active]:bg-purple-600 data-[state=active]:text-white px-3 py-2 rounded-lg">Health Concierge</TabsTrigger>
             </TabsList>
@@ -327,6 +358,10 @@ const HealthPlanOverview = ({ onNavigateNext }: { onNavigateNext: () => void }) 
 
           <TabsContent value="network" className="mt-6">
             <CategoryTable categories={networkCategories} />
+          </TabsContent>
+
+          <TabsContent value="pricing" className="mt-6">
+            <PricingTable />
           </TabsContent>
 
           <TabsContent value="outcomes" className="mt-6">
