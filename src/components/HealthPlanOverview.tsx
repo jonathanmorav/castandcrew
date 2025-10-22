@@ -15,7 +15,7 @@ const coverageCategories: Category[] = [
   {
     name: "Plan Fundamentals",
     rows: [
-      { label: "Plan Type", fcld: "Limited Day Indemnity", hooray: "Hospital Indemnity + Accident" },
+      { label: "Plan Type", fcld: "Limited Day", hooray: "Hospital Indemnity + Accident" },
       { label: "Annual Deductible", fcld: "$0", hooray: "$0" },
       { label: "Annual Maximum", fcld: "Varies by service type", hooray: "$30,000 + $5,000 accident" },
       { label: "Coverage Model", fcld: "Expense-incurred (100% after copay)", hooray: "Fixed indemnity payments" },
@@ -42,8 +42,8 @@ const coverageCategories: Category[] = [
     name: "Urgent Care",
     rows: [
       { label: "Urgent Care Visits", fcld: "2 visits @ $100 copay", hooray: "$25 flat fee (Hooray Network)" },
-      { label: "Network Size", fcld: "Standard PPO", hooray: "4,500+ locations" },
-      { label: "Balance Billing", fcld: "Covered after copay", hooray: "No balance billing in network" },
+      { label: "Network Size", fcld: "Standard PPO", hooray: "4,500+ Urgent Care Locations + PPO Network" },
+      { label: "Balance Billing", fcld: "Covered after copay", hooray: "No balance billing in network (for urgent care only)" },
       { label: "Out-of-Network", fcld: "Standard rates apply", hooray: "$175 indemnity payment" },
     ],
   },
@@ -57,16 +57,16 @@ const coverageCategories: Category[] = [
   {
     name: "Hospitalization",
     rows: [
-      { label: "Hospital Days", fcld: "5 days @ $250/day (150% of Medicare)", hooray: "$500 admission + $500/day" },
-      { label: "Max Annual Benefit", fcld: "$1,250", hooray: "$3,000 (example 5 days)" },
+      { label: "Hospital Days", fcld: "$250 Co-pay / Day up to 5 Days Total", hooray: "$500 admission + $500/day" },
+      { label: "Max Annual Benefit", fcld: "$1,250", hooray: "$500/day up to 5 Days/Year plus $500/admission ($3,000 total)" },
       { label: "Facility / OR / Professional", fcld: true, hooray: true },
     ],
   },
   {
     name: "Surgery",
     rows: [
-      { label: "Outpatient Surgery", fcld: "$350 facility + $200 anesthesia", hooray: "$500 facility + $200 anesthesia" },
-      { label: "Inpatient Surgery", fcld: "Included in hospital benefit", hooray: "$500 surgery + $200 anesthesia (1x/yr)" },
+      { label: "Outpatient Surgery", fcld: "$350 facility", hooray: "$500 facility + $200 anesthesia" },
+      { label: "Inpatient Surgery", fcld: "$250 copay", hooray: "$500 surgery + $200 anesthesia (1x/yr)" },
     ],
   },
   {
@@ -110,7 +110,7 @@ const coverageCategories: Category[] = [
   {
     name: "Accident Coverage & Additional",
     rows: [
-      { label: "Accident Medical Expense", fcld: "$5,000 per accident", hooray: "$5,000 per accident" },
+      { label: "Accident Medical Expense", fcld: "$5,000 per accident", hooray: "$10,000 per accident" },
       { label: "Ambulance", fcld: "1 trip @ $250 copay", hooray: "$250 copay" },
       { label: "Patient Advocacy / Concierge", fcld: true, hooray: false },
       { label: "High-Cost Drug Program", fcld: true, hooray: "Limited (GLP-1 discount)" },
@@ -125,7 +125,7 @@ const networkCategories: Category[] = [
     name: "Primary Network",
     rows: [
       { label: "Network Type", fcld: "PPO / First Health implied", hooray: "Hooray Urgent Care + First Health" },
-      { label: "Network Size", fcld: "Standard PPO coverage", hooray: "4,500+ urgent care locations" },
+      { label: "Network Size", fcld: "Standard PPO coverage", hooray: "4,500+ Urgent Care Locations + PPO Network" },
       { label: "States Covered", fcld: "Nationwide", hooray: "47 states" },
       { label: "Population Access", fcld: "Standard", hooray: "84% within 20 miles" },
       { label: "Network Growth", fcld: "Stable", hooray: "~25 new locations/month" },
