@@ -255,7 +255,7 @@ const CategoryTable = ({ categories }: { categories: Category[] }) => (
       <TableHeader>
         <TableRow className="bg-gradient-to-r from-soft-blue/60 to-brand-lightMint/40 text-brand-darkBlue">
           <TableHead className="w-[30%] text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">Benefit</TableHead>
-          <TableHead className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">FCLD (Bronze MVP)</TableHead>
+          <TableHead className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">FCLD (In/Out)</TableHead>
           <TableHead className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">Hooray Health (MAX $30k)</TableHead>
         </TableRow>
       </TableHeader>
