@@ -168,7 +168,7 @@ const outcomeScenarios: OutcomeScenario[] = [
     fcld: [
       "1 ER visit @ $500 facility copay",
       "Physician & staff included",
-      "Expense-incurred coverage after copay",
+      "Reference Based Pricing @ 150% of Medicare",
     ],
     hooray: [
       "$175 indemnity payment",
@@ -183,7 +183,6 @@ const outcomeScenarios: OutcomeScenario[] = [
     fcld: [
       "~$500 total member cost (example)",
       "Facility/OR/pro services included",
-      "Expense-incurred after copays",
     ],
     hooray: [
       "$500 admission + $500/day x2 = $1,500",
