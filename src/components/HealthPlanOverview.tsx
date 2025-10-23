@@ -294,7 +294,7 @@ const PricingTable = () => (
         <TableRow className="bg-gradient-to-r from-soft-blue/60 to-brand-lightMint/40 text-brand-darkBlue">
           <TableHead className="w-[30%] text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">Coverage Tier</TableHead>
           <TableHead className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">FCLD (In/Out)</TableHead>
-          <TableHead className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">Hooray Health (MAX $60,000)</TableHead>
+          <TableHead className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-darkBlue/80">Hooray Health (MAX $30,000)</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
