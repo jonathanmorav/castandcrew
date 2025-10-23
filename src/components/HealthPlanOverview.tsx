@@ -181,7 +181,7 @@ const outcomeScenarios: OutcomeScenario[] = [
     title: "Maternity Delivery (48-hour stay)",
     icon: Baby,
     fcld: [
-      "~$500 total member cost (example)",
+      "Hospital copay: $500/day (2 days = $1,000)",
       "Facility/OR/pro services included",
     ],
     hooray: [
@@ -208,7 +208,7 @@ const outcomeScenarios: OutcomeScenario[] = [
     title: "Office Visit + Labs/X-Ray",
     icon: Stethoscope,
     fcld: [
-      "PCP: 6 visits @ $30; Specialist: 5 @ $60",
+      "PCP: 3 visits @ $30; Specialist: 3 @ $60",
       "All services under the roof covered 100% after copay",
       "Labs $0 at Allied partners; X-ray 3 @ $50 (outside office)",
     ],
