@@ -110,7 +110,7 @@ const coverageCategories: Category[] = [
   {
     name: "Accident Coverage & Additional",
     rows: [
-      { label: "Accident Medical Expense", fcld: "$5,000 per accident", hooray: "$10,000 per accident" },
+      { label: "Accident Medical Expense", fcld: false, hooray: "$5,000 per accident" },
       { label: "Ambulance", fcld: "1 trip @ $250 copay", hooray: "$250 copay" },
       { label: "Patient Advocacy / Concierge", fcld: true, hooray: false },
       { label: "High-Cost Drug Program", fcld: true, hooray: "Limited (GLP-1 discount)" },
