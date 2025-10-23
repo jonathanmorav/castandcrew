@@ -281,10 +281,10 @@ const CategoryTable = ({ categories }: { categories: Category[] }) => (
 );
 
 const pricingRows: Row[] = [
-  { label: "EE", fcld: "$300.00", hooray: "$215.95" },
-  { label: "EE+Spouse", fcld: "$600.00", hooray: "$380.27" },
-  { label: "EE + Children", fcld: "$550.00", hooray: "$361.08" },
-  { label: "Family", fcld: "$750.00", hooray: "$543.76" },
+  { label: "EE", fcld: "$300.00", hooray: "$162.95" },
+  { label: "EE+Spouse", fcld: "$600.00", hooray: "$273.01" },
+  { label: "EE + Children", fcld: "$550.00", hooray: "$271.93" },
+  { label: "Family", fcld: "$750.00", hooray: "$394.04" },
 ];
 
 const PricingTable = () => (
