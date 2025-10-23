@@ -33,8 +33,8 @@ const coverageCategories: Category[] = [
   {
     name: "Office Visits",
     rows: [
-      { label: "Primary Care (PCP)", fcld: "6 visits @ $30 copay", hooray: "$100/day indemnity (unlimited)" },
-      { label: "Specialist Visits", fcld: "5 visits @ $60 copay", hooray: "$100/day indemnity (unlimited)" },
+      { label: "Primary Care (PCP)", fcld: "3 visits @ $30 copay", hooray: "$100/day indemnity (unlimited)" },
+      { label: "Specialist Visits", fcld: "3 visits @ $60 copay", hooray: "$100/day indemnity (unlimited)" },
       { label: "Coverage Model", fcld: "All services under roof 100% after copay", hooray: "Fixed payment regardless of cost" },
     ],
   },
@@ -57,7 +57,7 @@ const coverageCategories: Category[] = [
   {
     name: "Hospitalization",
     rows: [
-      { label: "Hospital Days", fcld: "$250 Co-pay / Day up to 5 Days Total", hooray: "$500 admission + $500/day" },
+      { label: "Hospital Days", fcld: "$500 Co-pay / Day up to 3 Days per year", hooray: "$500 admission + $500/day" },
       { label: "Max Annual Benefit", fcld: "$1,250", hooray: "$500/day up to 5 Days/Year plus $500/admission ($3,000 total)" },
       { label: "Facility / OR / Professional", fcld: true, hooray: true },
     ],
@@ -66,7 +66,7 @@ const coverageCategories: Category[] = [
     name: "Surgery",
     rows: [
       { label: "Outpatient Surgery", fcld: "$350 facility", hooray: "$500 facility + $200 anesthesia" },
-      { label: "Inpatient Surgery", fcld: "$250 copay", hooray: "$500 surgery + $200 anesthesia (1x/yr)" },
+      { label: "Inpatient Surgery", fcld: "$500 copay", hooray: "$500 surgery + $200 anesthesia (1x/yr)" },
     ],
   },
   {
